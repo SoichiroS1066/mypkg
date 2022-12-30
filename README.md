@@ -2,7 +2,7 @@
 ![test](https://github.com/ryuichiueda/robosys2022/actions/workflows/test.yml/badge.svg)
 
 ## 機能
-* あ
+* a
 
 ## 起動の手順
 
