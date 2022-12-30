@@ -13,7 +13,7 @@
   * テスト済み: 3.7 ～3.10
 
 ## テスト環境
-* Ubuntu
+* Ubuntu 18.04
 
 © 2022 Soichiro Suzuki
 ## 著作権に関して
