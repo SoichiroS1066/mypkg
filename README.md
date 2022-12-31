@@ -10,7 +10,9 @@
 
 ## 使用例
 (端末1)'$ ros2 run mypkg listener'
+<br>
 (端末2)'$ ros2 run mypkg talker'
+<br>
 (端末1)'3.6.9 (default, Jun 29 2022, 11:45:57)
 [GCC 8.4.0]
 [INFO] [listener]: Listen: 0
