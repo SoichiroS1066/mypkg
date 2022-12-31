@@ -2,9 +2,14 @@
 ![test](https://github.com/ryuichiueda/robosys2022/actions/workflows/test.yml/badge.svg)
 
 ## 機能
-* a
+* 数字をカウントしてトピック/countupを通じて送信する
+ * メッセージの型は16ビット符号つき整数　(std)
 
 ## 起動の手順
+~/ros2_ws/src/mypkg/mypkgにtalker.pyを書く
+<br>
+talker.pyをビルド(`colcon build`)する
+<br>
 (端末1)`$ ros2 run mypkg listener` と入力し、もう一つの端末を開く
 <br>
 (端末2)`$ ros2 run mypkg talker` と入力する
