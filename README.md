@@ -10,14 +10,14 @@
 <br>
 (端末1) talker.pyをビルド(`colcon build`)する
 <br>
-(端末1)`$ ros2 run mypkg listener` と入力し、もう一つの端末を開く
+(端末1)$`ros2 run mypkg listener` と入力し、もう一つの端末を開く
 <br>
-(端末2)`$ ros2 run mypkg talker` と入力する
+(端末2)$`ros2 run mypkg talker` と入力する
 
 ## 使用例
-(端末1)`$ ros2 run mypkg listener`
+(端末1)$`ros2 run mypkg listener`
 <br>
-(端末2)`$ ros2 run mypkg talker`
+(端末2)$`ros2 run mypkg talker`
 <br>
 (端末1)3.6.9 (default, Jun 29 2022, 11:45:57)
 <br>
