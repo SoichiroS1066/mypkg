@@ -12,6 +12,8 @@
 <br>
 (端末1)$`ros2 run mypkg listener` と入力し、もう一つの端末を開く
 <br>
+これだけでは何も起きないので別でUbuntuを開き
+<br>
 (端末2)$`ros2 run mypkg talker` と入力する
 
 ## 使用例
