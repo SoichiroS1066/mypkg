@@ -16,7 +16,7 @@
 <br>
 (端末1)'3.6.9 (default, Jun 29 2022, 11:45:57)
 <br>
-[GCC 8.4.0]
+       [GCC 8.4.0]
 <br>
 [INFO] [listener]: Listen: 0
 <br>
@@ -41,8 +41,11 @@
 [INFO] [listener]: Listen: 10
 <br>
 [INFO] [listener]: Listen: 11'
+<br>
 		:
+<br>
 		:
+<br>
 		:
 
 ## 必要なソフトウェア
