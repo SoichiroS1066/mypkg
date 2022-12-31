@@ -14,31 +14,31 @@
 <br>
 (端末2)`$ ros2 run mypkg talker`
 <br>
-(端末1)`3.6.9 (default, Jun 29 2022, 11:45:57)`
+(端末1)3.6.9 (default, Jun 29 2022, 11:45:57)
 <br>
-`[GCC 8.4.0]`
+[GCC 8.4.0]
 <br>
-`[INFO] [listener]: Listen: 0`
+[INFO] [listener]: Listen: 0
 <br>
-`[INFO] [listener]: Listen: 1`
+[INFO] [listener]: Listen: 1
 <br>
-`[INFO] [listener]: Listen: 2`
+[INFO] [listener]: Listen: 2
 <br>
-`[INFO] [listener]: Listen: 3`
+[INFO] [listener]: Listen: 3
 <br>
-`[INFO] [listener]: Listen: 4`
+[INFO] [listener]: Listen: 4
 <br>
-`[INFO] [listener]: Listen: 5`
+[INFO] [listener]: Listen: 5
 <br>
-`[INFO] [listener]: Listen: 6`
+[INFO] [listener]: Listen: 6
 <br>
-`[INFO] [listener]: Listen: 7`
+[INFO] [listener]: Listen: 7
 <br>
-`[INFO] [listener]: Listen: 8`
+[INFO] [listener]: Listen: 8
 <br>
-`[INFO] [listener]: Listen: 9`
+[INFO] [listener]: Listen: 9
 <br>
-`[INFO] [listener]: Listen: 10`
+[INFO] [listener]: Listen: 10
 <br>
 `[INFO] [listener]: Listen: 11`
 <br>
