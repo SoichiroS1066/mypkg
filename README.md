@@ -5,9 +5,9 @@
 * a
 
 ## 起動の手順
-(端末1)'$ ros2 run mypkg listener' と入力し、もう一つUbuntuを開く
+(端末1)'$ ros2 run mypkg listener' と入力し、もう一つの端末を開く
 <br>
-(端末2)'$ ros2 run mypkg talker' ともう一つのUbuntuで入力する
+(端末2)'$ ros2 run mypkg talker' と入力する
 
 ## 使用例
 (端末1)'$ ros2 run mypkg listener'
