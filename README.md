@@ -6,9 +6,9 @@
  * メッセージの型は16ビット符号つき整数　(std)
 
 ## 起動の手順
-~/ros2_ws/src/mypkg/mypkgにtalker.pyを書く
+(端末1) ~/ros2_ws/src/mypkg/mypkgにtalker.pyを書く
 <br>
-talker.pyをビルド(`colcon build`)する
+(端末1) talker.pyをビルド(`colcon build`)する
 <br>
 (端末1)`$ ros2 run mypkg listener` と入力し、もう一つの端末を開く
 <br>
