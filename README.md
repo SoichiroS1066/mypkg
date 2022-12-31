@@ -59,6 +59,7 @@
 
 ## テスト環境
 * Ubuntu 18.04
+* GitHub Actions
 
 © 2022 Soichiro Suzuki
 ## 著作権に関して
