@@ -2,56 +2,18 @@
 ![test](https://github.com/ryuichiueda/robosys2022/actions/workflows/test.yml/badge.svg)
 
 ## 機能
-* 数字をカウントしてトピック/countupを通じて送信する
-  * メッセージの型は16ビット符号つき整数　(std)
+* talker.pyで1ずつ加算されるnをlistener.pyで表示する
 
 ## 起動の手順
-(端末1) ~/ros2_ws/src/mypkg/mypkgにtalker.pyを書く
-<br>
-(端末1) talker.pyをビルド(`colcon build`)する
-<br>
-(端末1)$`ros2 run mypkg listener` と入力し、もう一つの端末を開く
-<br>
-これだけでは何も起きないので別でUbuntuを開き
-<br>
-(端末2)$`ros2 run mypkg talker` と入力する
+`$ cd ~/ros2_ws/src
+$ git clone https://github.com/SoichiroS1066/mypkg.git
+$ cd ~/ros2_ws/
+$ colcon build`
 
 ## 使用例
-(端末1)$`ros2 run mypkg listener`
-<br>
-(端末2)$`ros2 run mypkg talker`
-<br>
-(端末1)3.6.9 (default, Jun 29 2022, 11:45:57)
-<br>
-[GCC 8.4.0]
-<br>
-[INFO] [listener]: Listen: 0
-<br>
-[INFO] [listener]: Listen: 1
-<br>
-[INFO] [listener]: Listen: 2
-<br>
-[INFO] [listener]: Listen: 3
-<br>
-[INFO] [listener]: Listen: 4
-<br>
-[INFO] [listener]: Listen: 5
-<br>
-[INFO] [listener]: Listen: 6
-<br>
-[INFO] [listener]: Listen: 7
-<br>
-[INFO] [listener]: Listen: 8
-<br>
-[INFO] [listener]: Listen: 9
-<br>
-[INFO] [listener]: Listen: 10
-<br>
-[INFO] [listener]: Listen: 11
-<br>
-		:
-<br>
-		:
+$ ros2 run mypkg listener
+
+
 
 ## 必要なソフトウェア
 * Python 
