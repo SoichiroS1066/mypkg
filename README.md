@@ -5,15 +5,34 @@
 * talker.pyで1ずつ加算されるnをlistener.pyで表示する
 
 ## 起動の手順
-`$ cd ~/ros2_ws/src
-$ git clone https://github.com/SoichiroS1066/mypkg.git
-$ cd ~/ros2_ws/
-$ colcon build`
+`$ cd ~/ros2_ws/src`
+<br>
+`$ git clone https://github.com/SoichiroS1066/mypkg.git`
+<br>
+`$ cd ~/ros2_ws`
+<br>
+`$ colcon build`
 
 ## 使用例
-$ ros2 run mypkg listener
-
-
+`$ cd ~/ros2`
+<br>
+`$ ros2 launch mypkg talk_listen.launch.py`
+<br>
+`[INFO] [launch]: All log files can be found below /home/suzuki/.ros/log/2023-01-08-20-39-09-637178-DESKTOP-VKJQDU9-2787`
+<br>
+`[INFO] [launch]: Default logging verbosity is set to INFO`
+<br>
+`[INFO] [talker-1]: process started with pid [2797]`
+<br>
+`[INFO] [listener-2]: process started with pid [2798]`
+<br>
+`[listener-2] [INFO] [listener]: Listen: 0`
+<br>
+`[listener-2] [INFO] [listener]: Listen: 1`
+<br>
+`[listener-2] [INFO] [listener]: Listen: 3`
+<br>
+・・・
 
 ## 必要なソフトウェア
 * Python 
