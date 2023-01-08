@@ -45,7 +45,7 @@
 
 ## テスト環境
 * GitHub Actions
-
+* Ubuntu 18.04
 * Python 3.7 ～ 3.10
 
 
