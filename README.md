@@ -1,10 +1,8 @@
 # mypkg
 ![test](https://github.com/ryuichiueda/robosys2022/actions/workflows/test.yml/badge.svg)
 
-## 機能
-* talker.pyで1ずつ加算されるnをlistener.pyで表示する
-
-## 起動の手順
+## リポジトリを使用する前の準備
+ターミナルで以下を実行
 `$ cd ~/ros2_ws/src`
 <br>
 `$ git clone https://github.com/SoichiroS1066/mypkg.git`
@@ -13,8 +11,12 @@
 <br>
 `$ colcon build`
 
+## 「talker」 & 「listener」
+## 機能
+* talker.pyで1ずつ加算されるnをlistener.pyで表示する。
+
 ## 使用例
-`$ cd ~/ros2`
+`$ cd ~/ros2_ws`
 <br>
 `$ ros2 launch mypkg talk_listen.launch.py`
 <br>
