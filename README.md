@@ -6,15 +6,15 @@
 
 ## リポジトリを使用する前の準備
 ターミナルで以下を実行
-<br>
-`$ cd ~/ros2_ws/src`
-<br>
-`$ git clone https://github.com/SoichiroS1066/mypkg.git`
-<br>
-`$ cd ~/ros2_ws`
-<br>
-`$ colcon build`
-
+```
+$ cd ~/ros2_ws/src
+```
+$ git clone https://github.com/SoichiroS1066/mypkg.git
+```
+$ cd ~/ros2_ws
+```
+$ colcon build
+```
 ## 「talker」 & 「listener」
 ## 機能
 * talker.pyで1ずつ加算されるnをlistener.pyで表示する。
