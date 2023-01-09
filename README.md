@@ -12,7 +12,7 @@ $ git clone https://github.com/SoichiroS1066/mypkg.git
 $ cd ~/ros2_ws
 $ colcon build
 ```
-## 「talker」 & 「listener」
+## 「talker.py」 & 「listener.py」
 ## 機能
 * talker.pyで1ずつ加算されるnをlistener.pyで表示する。
 
