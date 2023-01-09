@@ -8,11 +8,8 @@
 ターミナルで以下を実行
 ```
 $ cd ~/ros2_ws/src
-
 $ git clone https://github.com/SoichiroS1066/mypkg.git
-
 $ cd ~/ros2_ws
-
 $ colcon build
 ```
 ## 「talker」 & 「listener」
@@ -20,28 +17,19 @@ $ colcon build
 * talker.pyで1ずつ加算されるnをlistener.pyで表示する。
 
 ## 使用例
-`$ cd ~/ros2_ws`
-<br>
-`$ ros2 launch mypkg talk_listen.launch.py`
-<br>
-`[INFO] [launch]: All log files can be found below /home/suzuki/.ros/log/2023-01-08-20-39-09-637178-DESKTOP-VKJQDU9-2787`
-<br>
-`[INFO] [launch]: Default logging verbosity is set to INFO`
-<br>
-`[INFO] [talker-1]: process started with pid [2797]`
-<br>
-`[INFO] [listener-2]: process started with pid [2798]`
-<br>
-`[listener-2] [INFO] [listener]: Listen: 0`
-<br>
-`[listener-2] [INFO] [listener]: Listen: 1`
-<br>
-`[listener-2] [INFO] [listener]: Listen: 2`
-<br>
-`[listener-2] [INFO] [listener]: Listen: 3`
-<br>
+```
+$ cd ~/ros2_ws
+$ ros2 launch mypkg talk_listen.launch.py
+[INFO] [launch]: All log files can be found below /home/suzuki/.ros/log/2023-01-08-20-39-09-637178-DESKTOP-VKJQDU9-2787
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [talker-1]: process started with pid [2797]
+[INFO] [listener-2]: process started with pid [2798]
+[listener-2] [INFO] [listener]: Listen: 0
+[listener-2] [INFO] [listener]: Listen: 1
+[listener-2] [INFO] [listener]: Listen: 2
+[listener-2] [INFO] [listener]: Listen: 3
 ・・・
-
+```
 ## 必要なソフトウェア
 * Python 
   * テスト済み: 3.7 ～ 3.10
