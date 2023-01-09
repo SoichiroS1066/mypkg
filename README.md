@@ -6,9 +6,9 @@
 
 ## リポジトリの概要
 * talker.py
-  * サブスクライバーの役割を持つ
-* listener.py
   * パブリッシャーの役割を持つ
+* listener.py
+  * サブスクライバーの役割を持つ
 
 ## リポジトリを使用する前の準備
 ターミナルで以下を実行
@@ -20,7 +20,7 @@ $ colcon build
 ```
 ## 「talker.py」 & 「listener.py」
 ## 機能
-* talker.pyで1ずつ加算されるnをlistener.pyで表示する。
+* talker.pyで1ずつ加算されていくnをlistener.pyで表示する
 
 ## 使用例
 ```
