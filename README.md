@@ -36,6 +36,10 @@ $ ros2 launch mypkg talk_listen.launch.py
 [listener-2] [INFO] [listener]: Listen: 3
 ・・・
 ```
+## ノードとトピック
+![画像の説明](images/node.png "node")
+
+
 ## 必要なソフトウェア
 * Python 
   * テスト済み: 3.7 ～ 3.10
