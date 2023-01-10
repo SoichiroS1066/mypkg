@@ -37,7 +37,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 ・・・
 ```
 ## ノードとトピック
-![画像の説明](images/node.png "node")
+![2023-01-10 (5)](https://user-images.githubusercontent.com/115678618/211739868-ae299d5b-54cb-4f40-8130-aae515fd8d83.png)
 
 
 ## 必要なソフトウェア
