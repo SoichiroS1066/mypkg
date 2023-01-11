@@ -1,5 +1,5 @@
 # mypkg
-![test](https://github.com/ryuichiueda/robosys2022/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/SoichiroS1066/mypkg)
 
 ## はじめに
 このソフトウェアは千葉工業大学未来先進工学部未来ロボティクス学科2年後期「ロボットシステム学」の講義内で使用したものです。
