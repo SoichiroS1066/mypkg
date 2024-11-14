@@ -1,4 +1,5 @@
 # mypkg
+[![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 ![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/test.yml/badge.svg)
 
 こちらは、千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
