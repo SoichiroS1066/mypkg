@@ -12,8 +12,7 @@ talker.py, listener.py
 ターミナルで以下のコマンドを実行する
 ```
 $ cd ~/ros2_ws/src/
-$ git clone https://github.com/IkuoShige/mypkg.git
-$ git clone https://github.com/IkuoShige/hit_and_blow_msgs.git
+$ git clone https://github.com/SoichiroS1066/mypkg.git
 $ cd ~/ros2_ws/
 $ colcon build
 ```
