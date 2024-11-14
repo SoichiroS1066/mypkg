@@ -7,6 +7,23 @@
 
 talker.py, listener.py
 
+# リポジトリの使用方法
+
+ターミナルで以下のコマンドを実行する
+```
+$ cd ~/ros2_ws/src/
+$ git clone https://github.com/IkuoShige/mypkg.git
+$ git clone https://github.com/IkuoShige/hit_and_blow_msgs.git
+$ cd ~/ros2_ws/
+$ colcon build
+```
+
+# talker と listener
+
+## 機能
+
+talker.py で１ずつ加算したnをpublishし、listener.py でnをsubscribeする
+
 # LICENSE
 
 * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
