@@ -1,20 +1,26 @@
-import rclpy  #ROS 2のクライアントのためのライブラリ
-from rclpy.node import Node  #ノードを実装するためのNodeクラス（クラスは第10回で）
-from std_msgs.msg import Int16  #通信の型（16ビットの符号付き整数）
+import rclpy
+from rclpy.node import Node
+from person_msgs.msg import Person
 
-rclpy.init() 
-node = Node("talker")  #ノード作成（nodeという「オブジェクト」を作成）
-pub = node.create_publisher(Int16, "countup", 10)  #パブリッシャのオブジェクト作成
-n = 0  #カウント用変数
+rclpy.init()
+node = Node("talker")
+pub = node.create_publisher(Person, "person", 10)
+n = 0
 
-def cb():  #20行目で定期実行されるコールバック関数
-    global n  #関数を抜けてもnがリセットされないようにしている
-    msg = Int16()  #メッセージの「オブジェクト」
-    msg.data = n  #msgオブジェクトの持つdataにnを結び付け
-    pub.publish(msg)  #pubの持つpublishでメッセージ送信
+def cb():
+    global n
+    msg = Person()
+    msg.name = "鈴木聡一郎"
+    msg.age = n
+    pub.publish(msg)
+    rclpy.logging.get_logger("talker").info(f"Published: {msg.name}, {msg.age}")  # 修正
     n += 1
 
 def main():
-    node.create_timer(0.5, cb)  #タイマー設定
-    rclpy.spin(node)  #実行（無限ループ）
+    node.create_timer(0.5, cb)
+    rclpy.logging.get_logger("talker").info("Talker node started...")  # 修正
+    rclpy.spin(node)
+
+if __name__ == '__main__':
+    main()
 
