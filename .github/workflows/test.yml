@@ -1,29 +1,21 @@
 name: test
-on: push
+on: 
+  push:
+    branches:
+      - main # 変更したいブランチを指定
+
 jobs:
   test:
     runs-on: ubuntu-22.04
-    container: ryuichiueda/ubuntu22.04-ros2:latest
+    container: ryuichiueda/ubuntu22.04-ros2:latest # 使用するコンテナイメージ
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: List directory contents
-        run: |
-          ls -la
-
-      - name: Copy repository files
-        run: |
-          rsync -av ./ /root/ros2_ws/src/mypkg/
-          ls -la /root/ros2_ws/src/mypkg/
-
-      - name: Install ROS dependencies
-        run: |
-          rosdep update
-          rosdep install --from-paths /root/ros2_ws/src --ignore-src -r -y
+      - name: Check out repository
+        uses: actions/checkout@v2  # コンテナにリポジトリをチェックアウト
 
       - name: Build and test
         run: |
-          cd /root/ros2_ws
-          bash -xv ./src/mypkg/test/test.bash
+          rsync -av ./ /root/ros2_ws/src/mypkg/    # リポジトリのファイルをros2_wsにコピー
+          cd /root/ros2_ws  # ROS2ワークスペースに移動
+          bash -xv ./src/mypkg/test/test.bash /root  # テストスクリプトを実行
 
