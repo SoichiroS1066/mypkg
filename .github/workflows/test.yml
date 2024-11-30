@@ -1,21 +1,17 @@
 name: test
-on: 
-  push:
-    branches:
-      - main # 変更したいブランチを指定
-
+on: push
 jobs:
   test:
     runs-on: ubuntu-22.04
-    container: ryuichiueda/ubuntu22.04-ros2:latest # 使用するコンテナイメージ
-
+    container: ryuichiueda/ubuntu22.04-ros2:latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2  # コンテナにリポジトリをチェックアウト
-
-      - name: Build and test
+      - uses: actions/checkout@v2
+      - name: build and test
         run: |
-          rsync -av ./ /root/ros2_ws/src/mypkg/    # リポジトリのファイルをros2_wsにコピー
-          cd /root/ros2_ws  # ROS2ワークスペースに移動
-          bash -xv ./src/mypkg/test/test.bash /root  # テストスクリプトを実行
-
+          rsync -av ./ /root/ros2_ws/src/mypkg/
+          cd /root/ros2_ws/src/
+          git clone https://github.com/IkuoShige/hit_and_blow_msgs.git
+          cd /root/ros2_ws
+          rosdep update
+          rosdep install -i --from-path src --rosdistro humble -y
+          bash -xv ./src/mypkg/test/test.bash /root
