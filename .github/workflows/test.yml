@@ -6,7 +6,7 @@ jobs:
     container: ryuichiueda/ubuntu22.04-ros2:latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Python 3.10
+      - name: Install Python 3.10 and set as default
         run: |
           sudo apt update
           sudo apt install -y python3.10 python3.10-distutils
