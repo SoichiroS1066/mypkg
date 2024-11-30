@@ -11,6 +11,8 @@ jobs:
           sudo apt update
           sudo apt install -y python3.10 python3.10-distutils
           sudo ln -sf /usr/bin/python3.10 /usr/bin/python3
+          # Set COLCON_PYTHON_EXECUTABLE to the Python 3.10 executable
+          echo "COLCON_PYTHON_EXECUTABLE=/usr/bin/python3.10" >> $GITHUB_ENV
       - name: build and test
         run: |
           rsync -av ./ /root/ros2_ws/src/mypkg/
