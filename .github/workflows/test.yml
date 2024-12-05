@@ -7,30 +7,31 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # rsync コマンドでファイルをコピー
-      - name: Sync files to container
+      # Python3 のバージョン確認
+      - name: Check python3 version
         run: |
-          rsync -av --progress ./ /root/ros2_ws/src/mypkg/
+          python3 --version
 
-      # rsync 後のディレクトリ構造を確認
-      - name: List files after sync
+      # Python3 のパス確認
+      - name: Check if python3 exists
         run: |
-          echo "Listing /root/ros2_ws/src/mypkg/ directory:"
-          ls -R /root/ros2_ws/src/mypkg/
+          which python3
 
-      # スクリプトの存在確認
-      - name: Check if test.bash exists
+      # Python3 がインストールされていない場合、インストール
+      - name: Install python3 if not present
         run: |
-          if [ -f /root/ros2_ws/src/mypkg/test/test.bash ]; then
-            echo "test.bash found"
+          if ! command -v python3 &> /dev/null; then
+            echo "python3 not found, installing..."
+            sudo apt update
+            sudo apt install -y python3
           else
-            echo -e "\033[31mERROR: test.bash not found!\033[0m"  # 赤色でエラー表示
-            exit 1
+            echo "python3 is already installed"
           fi
 
-      # スクリプトを実行
-      - name: Build and test
+      # `test.bash` の実行
+      - name: build and test
         run: |
-          echo "Running test.bash..."
-          bash -xv /root/ros2_ws/src/mypkg/test/test.bash /root
+          rsync -av ./ /root/ros2_ws/src/mypkg/
+          cd /root/ros2_ws/src/mypkg/
+          bash -xv ./src/mypkg/test/test.bash /root
 
