@@ -1,19 +1,17 @@
-import launch
-import launch.actions
-import launch.substitutions
-import launch_ros.actions
-
+from launch import LaunchDescription
+from launch_ros.actions import Node
 
 def generate_launch_description():
-    talker = launch_ros.actions.Node(
-        package='mypkg',      # パッケージの名前を指定
-        executable='talker',  # 実行するファイルの指定
-    )
-    listener = launch_ros.actions.Node(
-        package='mypkg',
-        executable='listener',
-        output='screen'       # ログを端末に出すための設定
-    )
-
-    return launch.LaunchDescription([talker, listener])
+    return LaunchDescription([
+        Node(
+            package="mypkg",
+            executable="talker",
+            name="talker_node"
+        ),
+        Node(
+            package="mypkg",
+            executable="listener",
+            name="listener_node"
+        )
+    ])
 
