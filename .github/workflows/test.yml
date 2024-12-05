@@ -1,38 +1,35 @@
-name: Run Tests and Publish Report
-
+name: test
 on: push
-
 jobs:
   test:
     runs-on: ubuntu-22.04
     container: ryuichiueda/ubuntu22.04-ros2:latest
-    
     steps:
-      # Checkout the code from the repository
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      # Sync files to container (if necessary)
+      # rsync コマンドでファイルをコピー
       - name: Sync files to container
         run: |
           rsync -av --progress ./ /root/ros2_ws/src/mypkg/
 
-      # Build the project
-      - name: Build project
+      # rsync 後のディレクトリ構造を確認
+      - name: List files after sync
         run: |
-          cd /root/ros2_ws
-          colcon build
+          echo "Listing /root/ros2_ws/src/mypkg/ directory:"
+          ls -R /root/ros2_ws/src/mypkg/
 
-      # Run tests (ensure the tests output JUnit XML results)
-      - name: Run tests
+      # スクリプトの存在確認
+      - name: Check if test.bash exists
         run: |
-          cd /root/ros2_ws
-          colcon test --event-handlers console_cohesion+ --output-path build/test-results
+          if [ -f /root/ros2_ws/src/mypkg/test/test.bash ]; then
+            echo "test.bash found"
+          else
+            echo -e "\033[31mERROR: test.bash not found!\033[0m"  # 赤色でエラー表示
+            exit 1
+          fi
 
-      # Publish JUnit test results
-      - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v2
-        if: always()
-        with:
-          report_paths: '**/build/test-results/test/TEST-*.xml'
+      # スクリプトを実行
+      - name: Build and test
+        run: |
+          bash -xv /root/ros2_ws/src/mypkg/test/test.bash /root
 
