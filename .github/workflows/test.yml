@@ -1,35 +1,38 @@
-name: test
+name: Run Tests and Publish Report
+
 on: push
+
 jobs:
   test:
     runs-on: ubuntu-22.04
     container: ryuichiueda/ubuntu22.04-ros2:latest
+    
     steps:
-      - uses: actions/checkout@v2
+      # Checkout the code from the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      # rsync コマンドでファイルをコピー
+      # Sync files to container (if necessary)
       - name: Sync files to container
         run: |
           rsync -av --progress ./ /root/ros2_ws/src/mypkg/
 
-      # rsync 後のディレクトリ構造を確認
-      - name: List files after sync
+      # Build the project
+      - name: Build project
         run: |
-          echo "Listing /root/ros2_ws/src/mypkg/ directory:"
-          ls -R /root/ros2_ws/src/mypkg/
+          cd /root/ros2_ws
+          colcon build
 
-      # スクリプトの存在確認
-      - name: Check if test.bash exists
+      # Run tests (ensure the tests output JUnit XML results)
+      - name: Run tests
         run: |
-          if [ -f /root/ros2_ws/src/mypkg/test/test.bash ]; then
-            echo "test.bash found"
-          else
-            echo "test.bash not found!"
-            exit 1
-          fi
+          cd /root/ros2_ws
+          colcon test --event-handlers console_cohesion+ --output-path build/test-results
 
-      # スクリプトを実行
-      - name: Build and test
-        run: |
-          bash -xv /root/ros2_ws/src/mypkg/test/test.bash /root
+      # Publish JUnit test results
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v2
+        if: always()
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
 
