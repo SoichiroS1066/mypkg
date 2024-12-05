@@ -6,17 +6,6 @@ jobs:
     container: ryuichiueda/ubuntu22.04-ros2:latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Python 3.10 and set as default
-        run: |
-          sudo apt update
-          sudo apt install -y python3.10 python3.10-distutils
-          sudo ln -sf /usr/bin/python3.10 /usr/bin/python3
-          # Set COLCON_PYTHON_EXECUTABLE to the Python 3.10 executable
-          echo "COLCON_PYTHON_EXECUTABLE=/usr/bin/python3.10" >> $GITHUB_ENV
-          echo "COLCON_PYTHON_EXECUTABLE is set to $COLCON_PYTHON_EXECUTABLE"
-          # Check if Python is correctly installed
-          python3 --version
-          python3.10 --version
       - name: build and test
         run: |
           rsync -av ./ /root/ros2_ws/src/mypkg/
@@ -26,9 +15,3 @@ jobs:
           rosdep update
           rosdep install -i --from-path src --rosdistro humble -y
           bash -xv ./src/mypkg/test/test.bash /root
-          # Check exit code and log the output if there is an error
-          if [ $? -ne 0 ]; then
-            echo "Test failed. Check logs for details."
-            exit 1
-          fi
-
