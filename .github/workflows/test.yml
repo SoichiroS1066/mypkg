@@ -31,5 +31,6 @@ jobs:
       # スクリプトを実行
       - name: Build and test
         run: |
+          echo "Running test.bash..."
           bash -xv /root/ros2_ws/src/mypkg/test/test.bash /root
 
