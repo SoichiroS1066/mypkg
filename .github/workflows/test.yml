@@ -10,14 +10,14 @@ jobs:
       # rsync コマンドでファイルをコピー
       - name: Sync files to container
         run: |
-          rsync -av ./ /root/ros2_ws/src/mypkg/
-      
+          rsync -av --progress ./ /root/ros2_ws/src/mypkg/
+
       # rsync 後のディレクトリ構造を確認
       - name: List files after sync
         run: |
           echo "Listing /root/ros2_ws/src/mypkg/ directory:"
           ls -R /root/ros2_ws/src/mypkg/
-      
+
       # スクリプトの存在確認
       - name: Check if test.bash exists
         run: |
