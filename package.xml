@@ -9,7 +9,7 @@
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
-  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch_ros</exec_depend>  <!-- launch_rosパッケージを依存に追加 -->
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
@@ -20,3 +20,4 @@
     <build_type>ament_python</build_type>
   </export>
 </package>
+
