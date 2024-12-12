@@ -27,6 +27,28 @@ $ colcon build
 
 talker.py で１ずつ加算したnをpublishし、listener.py でnをsubscribeする
 
+## 使用方法
+先述したlaunchファイルを実行する
+```
+$ cd ~/ros2_ws/
+$ ros2 launch mypkg talk_listen.launch.py
+```  
+出力結果
+```
+[INFO] [launch]: All log files can be found below /home/suzuki/.ros/log/2024-12-12-14-34-57-897134-DESKTOP-VKJQDU9-106
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [talker-1]: process started with pid [111]
+[INFO] [listener-2]: process started with pid [112]
+[listener-2] [INFO] [1733981699.004403600] [listener]: Listen: 0
+[listener-2] [INFO] [1733981699.490451900] [listener]: Listen: 1
+[listener-2] [INFO] [1733981699.990581900] [listener]: Listen: 2
+[listener-2] [INFO] [1733981700.489951100] [listener]: Listen: 3
+...
+...
+```  
+
+## 課題
+
 # LICENSE
 
 * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
