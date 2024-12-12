@@ -8,8 +8,11 @@
 こちらは、千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
 
 # リポジトリの概要
-
 talker.py, listener.py
+* クラスやメソッドを用いて、publisherとsubscriberを実装
+
+talk_listen.launch.py
+* talker.py と listener.py の launchファイル
 
 # リポジトリの使用方法
 
