@@ -52,6 +52,10 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 ## 課題
 
+# テスト環境
+* Ubuntu 24.04.1 LTS
+* Python 3.7 ~ 3.10
+
 # LICENSE
 
 * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
