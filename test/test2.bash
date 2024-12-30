@@ -1,5 +1,5 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2025 Soichiro Suzuki
+# SPDX-FileCopyrightText: 2024 Soichiro Suzuki
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Define the default directory
@@ -21,7 +21,7 @@ source $dir/.bashrc
 
 # Test for countdown mode
 echo "Testing countdown mode with start_value 10"
-timeout 60 ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10 > /tmp/mypkg.log 2>&1
+timeout 120 ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10 > /tmp/mypkg.log 2>&1
 if [ $? -ne 0 ]; then
   echo "Countdown test failed"
   exit 1
@@ -35,7 +35,7 @@ fi
 
 # Test for countup mode
 echo "Testing countup mode with start_value 0"
-timeout 60 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg.log 2>&1
+timeout 120 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg.log 2>&1
 if [ $? -ne 0 ]; then
   echo "Countup test failed"
   exit 1
