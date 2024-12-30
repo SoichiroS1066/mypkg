@@ -35,19 +35,28 @@ colcon build
 # Source the ROS 2 environment
 source $dir/.bashrc
 
-# Run the ROS 2 launch file with countup mode and start value set to 0
-timeout 30 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg.log
+# Test 1: Run the ROS 2 launch file with countdown mode and start value set to 10
+timeout 10 ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10 > /tmp/mypkg_countdown.log
+
+# Check the log file for the expected output (Listen: 10)
+cat /tmp/mypkg_countdown.log | grep 'Listen: 10'
+if [ $? -ne 0 ]; then
+  echo "error: 'Listen: 10' not found in the countdown log output"
+  exit 1
+fi
+
+# Test 2: Run the ROS 2 launch file with countup mode and start value set to 0
+timeout 30 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg_countup.log
 
 # Output the entire log to verify what is actually being logged
-cat /tmp/mypkg.log
+cat /tmp/mypkg_countup.log
 
 # Check the log file for the expected output (Listen: 9)
-# Update this to match the actual output seen in the logs
-cat /tmp/mypkg.log | grep 'Listen: 9'
+cat /tmp/mypkg_countup.log | grep 'Listen: 9'
 
 # Check if the expected output is found
 if [ $? -ne 0 ]; then
-  echo "error: 'Listen: 9' not found in the log output"
+  echo "error: 'Listen: 9' not found in the countup log output"
   exit 1
 else
   echo "OK"
