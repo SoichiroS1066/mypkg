@@ -63,13 +63,18 @@ $ ros2 launch mypkg talk_listen.launch.py
 - talker2.py で１ずつ加算したnをpublishし、listener2.py でnをsubscribeする(カウントアップ)   
 - talker2.py で１ずつ減算したnをpublishし、listener2.py でnをsubscribeする(カウントダウン)   
 
-
 ## 📝使い方
 先述したlaunchファイルを実行する
 ```
 $ cd ~/ros2_ws/
-$ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
+   
+# カウントダウンの場合   
+$ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10   
+   
+# カウントアップの場合   
+$ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10   
 ```   
+※ start_value:=　の後ろの数字でカウントを始めるタイミングを設定します。   
    
 カウントダウンの出力(例)
 ```
