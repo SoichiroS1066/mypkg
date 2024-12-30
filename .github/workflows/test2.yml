@@ -45,8 +45,14 @@ jobs:
       - name: Install pip for all Python versions
         run: |
           for version in 3.7 3.8 3.9 3.10; do
-            python${version} -m ensurepip --upgrade
-            python${version} -m pip install --upgrade pip
+            echo "Installing pip for Python${version}"
+            if [ ! -f "/usr/bin/python${version}" ]; then
+              echo "Python${version} not found, skipping"
+              continue
+            fi
+            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            python${version} get-pip.py
+            rm get-pip.py
           done
 
       - name: Run tests for each Python version
