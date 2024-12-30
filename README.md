@@ -60,8 +60,8 @@ $ ros2 launch mypkg talk_listen.launch.py
 # talker2 とlistener2
 
 ## ⚙️ 機能
-
-pythonを用いてカウントダウンとカウントアップを行う
+- talker2.py で１ずつ加算したnをpublishし、listener2.py でnをsubscribeする(カウントアップ)   
+- talker2.py で１ずつ減算したnをpublishし、listener2.py でnをsubscribeする(カウントダウン)   
 
 
 ## 📝使い方
@@ -118,10 +118,12 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 `/countdown` (タイプ: std_msgs/msg/Int16)   
 - カウントダウン用のトピックです。このトピックでは、数値が減少するデータがパブリッシュされます。  
 
-# 🖥️必要なソフトウェア
-- *Python*  
-テスト済みバージョン: 3.7 ~ 3.10
+*パラメータ*   
+`mode`  
+- モードを指定するパラメータです（デフォルトはcountup）
 
+`start_value`   
+- カウントダウンの開始値（デフォルトは10）
 
 # 🌍テスト環境
 * Ubuntu 24.04.1 LTS
