@@ -53,6 +53,68 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 ## talker2 とlistener2
 
+## 機能
+
+pythonを用いてカウントダウンとカウントアップを行う
+
+
+## 使いかた
+
+以下のコマンドで実行が可能
+```
+$ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
+```   
+   
+カウントダウンの出力(例)
+```
+$ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
+[INFO] [launch]: All log files can be found below /home/suzuki/.ros/log/2024-12-31-02-53-06-543696-DESKTOP-VKJQDU9-892
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [talker2-1]: process started with pid [895]
+[INFO] [listener2-2]: process started with pid [896]
+[talker2-1] [INFO] [1735581187.877669900] [talker_node]: Countdown: 10
+[listener2-2] [INFO] [1735581187.887264700] [listener_node]: Listen: 10
+[talker2-1] [INFO] [1735581188.868084000] [talker_node]: Countdown: 9
+[listener2-2] [INFO] [1735581188.871407800] [listener_node]: Listen: 9
+[talker2-1] [INFO] [1735581189.868231300] [talker_node]: Countdown: 8
+[listener2-2] [INFO] [1735581189.870746700] [listener_node]: Listen: 8
+[talker2-1] [INFO] [1735581190.868418100] [talker_node]: Countdown: 7
+[listener2-2] [INFO] [1735581190.871693900] [listener_node]: Listen: 7
+[talker2-1] [INFO] [1735581191.868080200] [talker_node]: Countdown: 6
+[listener2-2] [INFO] [1735581191.871571800] [listener_node]: Listen: 6
+[talker2-1] [INFO] [1735581192.870785200] [talker_node]: Countdown: 5
+[listener2-2] [INFO] [1735581192.871859900] [listener_node]: Listen: 5
+[talker2-1] [INFO] [1735581193.868181600] [talker_node]: Countdown: 4
+[listener2-2] [INFO] [1735581193.871487000] [listener_node]: Listen: 4
+[talker2-1] [INFO] [1735581194.868096300] [talker_node]: Countdown: 3
+[listener2-2] [INFO] [1735581194.870532100] [listener_node]: Listen: 3
+[talker2-1] [INFO] [1735581195.868101600] [talker_node]: Countdown: 2
+[listener2-2] [INFO] [1735581195.871517800] [listener_node]: Listen: 2
+[talker2-1] [INFO] [1735581196.868257300] [talker_node]: Countdown: 1
+[listener2-2] [INFO] [1735581196.871847200] [listener_node]: Listen: 1
+[talker2-1] [INFO] [1735581197.868351200] [talker_node]: Countdown: 0
+[talker2-1] [INFO] [1735581197.869741800] [talker_node]: Countdown finished.
+[listener2-2] [INFO] [1735581197.872502100] [listener_node]: Listen: 0
+```
+
+## ノードとトピック
+ノード
+`/talker_node`   
+このノードは、指定されたモードに応じてカウントアップまたはカウントダウンを行い、その結果をパブリッシュします。   
+引数で指定されたmodeに基づき、値は増加または減少します。   
+タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（/countupまたは/countdown）にデータをパブリッシュします。   
+   
+`/listener_node`   
+このノードは、/countupまたは/countdownトピックからデータを受信し、その内容をログに出力します。   
+リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で表示します。   
+   
+トピック   
+`/countup` (タイプ: std_msgs/msg/Int16)   
+カウントアップ用のトピックです。このトピックでは、数値が増加するデータがパブリッシュされます。
+
+`/countdown` (タイプ: std_msgs/msg/Int16)   
+カウントダウン用のトピックです。このトピックでは、数値が減少するデータがパブリッシュされます。  
+
 
 # テスト環境
 * Ubuntu 24.04.1 LTS
