@@ -145,7 +145,7 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0
 
 *パラメータ*   
 `mode`  
-- モードを指定するパラメータ（デフォルトはcountup）
+- モード（`countup`または`countdown`）を指定するパラメータ（デフォルトは`countup`）
 
 `start_value`   
 - カウントダウンの開始値（デフォルトは10）
