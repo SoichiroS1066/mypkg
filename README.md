@@ -50,7 +50,9 @@ $ ros2 launch mypkg talk_listen.launch.py
 ...
 ```  
 
-## 課題
+## talker2 とlistener2
+![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/test2.yml/badge.svg)
+
 
 # テスト環境
 * Ubuntu 24.04.1 LTS
