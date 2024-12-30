@@ -55,6 +55,7 @@ jobs:
             else
               curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
             fi
+            sudo apt install -y python${version}-distutils  # Ensure distutils is installed
             python${version} get-pip.py
             rm get-pip.py
           done
