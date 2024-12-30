@@ -15,6 +15,12 @@ talker.py, listener.py
 talk_listen.launch.py
 * talker.py と listener.py の launchファイル
 
+talker2.py, listener2.py
+* カウントアップとカウントダウン機能を実装
+
+talk_listen2.launch.py
+* talker2.py と listener2.py の launchファイル
+
 # リポジトリの使用方法
 
 ターミナルで以下のコマンドを実行する
@@ -80,12 +86,9 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 [listener2-2] [INFO] [1735581189.870746700] [listener_node]: Listen: 8
 [talker2-1] [INFO] [1735581190.868418100] [talker_node]: Countdown: 7
 [listener2-2] [INFO] [1735581190.871693900] [listener_node]: Listen: 7
-[talker2-1] [INFO] [1735581191.868080200] [talker_node]: Countdown: 6
-[listener2-2] [INFO] [1735581191.871571800] [listener_node]: Listen: 6
-[talker2-1] [INFO] [1735581192.870785200] [talker_node]: Countdown: 5
-[listener2-2] [INFO] [1735581192.871859900] [listener_node]: Listen: 5
-[talker2-1] [INFO] [1735581193.868181600] [talker_node]: Countdown: 4
-[listener2-2] [INFO] [1735581193.871487000] [listener_node]: Listen: 4
+...
+...
+...
 [talker2-1] [INFO] [1735581194.868096300] [talker_node]: Countdown: 3
 [listener2-2] [INFO] [1735581194.870532100] [listener_node]: Listen: 3
 [talker2-1] [INFO] [1735581195.868101600] [talker_node]: Countdown: 2
@@ -98,22 +101,22 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 ```
 
 ## ノードとトピック
-ノード
+ノード   
 `/talker_node`   
-このノードは、指定されたモードに応じてカウントアップまたはカウントダウンを行い、その結果をパブリッシュします。   
-引数で指定されたmodeに基づき、値は増加または減少します。   
-タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（/countupまたは/countdown）にデータをパブリッシュします。   
+* このノードは、指定されたモードに応じてカウントアップまたはカウントダウンを行い、その結果をパブリッシュします。   
+* 引数で指定されたmodeに基づき、値は増加または減少します。   
+* タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（/countupまたは/countdown）にデータをパブリッシュします。   
    
 `/listener_node`   
-このノードは、/countupまたは/countdownトピックからデータを受信し、その内容をログに出力します。   
-リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で表示します。   
+* このノードは、/countupまたは/countdownトピックからデータを受信し、その内容をログに出力します。   
+* リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で表示します。   
    
 トピック   
 `/countup` (タイプ: std_msgs/msg/Int16)   
-カウントアップ用のトピックです。このトピックでは、数値が増加するデータがパブリッシュされます。
+* カウントアップ用のトピックです。このトピックでは、数値が増加するデータがパブリッシュされます。
 
 `/countdown` (タイプ: std_msgs/msg/Int16)   
-カウントダウン用のトピックです。このトピックでは、数値が減少するデータがパブリッシュされます。  
+* カウントダウン用のトピックです。このトピックでは、数値が減少するデータがパブリッシュされます。  
 
 
 # テスト環境
