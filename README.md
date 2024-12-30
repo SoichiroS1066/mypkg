@@ -133,8 +133,8 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0
 - タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（`/countup`または`/countdown`）にデータをパブリッシュする   
    
 `/listener_node`   
-- `/countup`または`/countdown`トピックからデータを受信し、その内容をログに出力する   
-- リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で表示する   
+- `/countup`または`/countdown`トピックからデータをサブスクライブし、その内容をログに出力する   
+- リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で出力する   
    
 *トピック*   
 `/countup` (タイプ: std_msgs/msg/Int16)   
