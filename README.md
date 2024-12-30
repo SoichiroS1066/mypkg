@@ -73,8 +73,8 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 # カウントアップの場合   
 $ ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0   
 ```   
-※1. `mode:=` の後ろに`countdown`又は`countup`を入力しモードを設定します   
-※2. `start_value:=`　の後ろの数字でカウントの開始タイミングを設定します   
+※1. `mode:=` の後ろに`countdown`又は`countup`を入力しモードを設定する   
+※2. `start_value:=`　の後ろの数字でカウントの開始タイミングを設定する   
    
 カウントダウンの出力(例)
 ```
@@ -128,24 +128,24 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0
 ## ノードとトピック
 *ノード*   
 `/talker_node`   
-- 指定されたモードに応じてカウントアップまたはカウントダウンを行い、その結果をパブリッシュします。   
+- 指定されたモードに応じてカウントアップまたはカウントダウンを行い、その結果をパブリッシュする   
 - 引数で指定されたmodeに基づき、値は増加または減少します。   
-- タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（`/countup`または`/countdown`）にデータをパブリッシュします。   
+- タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（`/countup`または`/countdown`）にデータをパブリッシュする   
    
 `/listener_node`   
-- `/countup`または`/countdown`トピックからデータを受信し、その内容をログに出力します。   
-- リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で表示します。   
+- `/countup`または`/countdown`トピックからデータを受信し、その内容をログに出力する   
+- リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で表示する   
    
 *トピック*   
 `/countup` (タイプ: std_msgs/msg/Int16)   
-- カウントアップ用のトピックで、数値が増加するデータがパブリッシュされます。
+- カウントアップ用のトピックで、数値が増加するデータがパブリッシュされる
 
 `/countdown` (タイプ: std_msgs/msg/Int16)   
-- カウントダウン用のトピックで、数値が減少するデータがパブリッシュされます。  
+- カウントダウン用のトピックで、数値が減少するデータがパブリッシュされる   
 
 *パラメータ*   
 `mode`  
-- モードを指定するパラメータです（デフォルトはcountup）
+- モードを指定するパラメータ（デフォルトはcountup）
 
 `start_value`   
 - カウントダウンの開始値（デフォルトは10）
