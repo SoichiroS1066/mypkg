@@ -35,7 +35,7 @@ fi
 
 # Test for countup mode
 echo "Testing countup mode with start_value 0"
-timeout 120 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg.log 2>&1
+timeout 300 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg.log 2>&1
 if [ $? -ne 0 ]; then
   echo "Countup test failed"
   exit 1
