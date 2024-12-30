@@ -41,7 +41,7 @@ timeout 30 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0
 # Output the entire log to verify what is actually being logged
 cat /tmp/mypkg.log
 
-# Check the log file for the expected output (Listen: 10)
+# Check the log file for the expected output (Listen: 9)
 # Update this to match the actual output seen in the logs
 cat /tmp/mypkg.log | grep 'Listen: 9'
 
@@ -49,5 +49,7 @@ cat /tmp/mypkg.log | grep 'Listen: 9'
 if [ $? -ne 0 ]; then
   echo "error: 'Listen: 9' not found in the log output"
   exit 1
+else
+  echo "OK"
 fi
 
