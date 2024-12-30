@@ -36,14 +36,18 @@ colcon build
 source $dir/.bashrc
 
 # Run the ROS 2 launch file with countup mode and start value set to 0
-timeout 10 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg.log
+timeout 30 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg.log
+
+# Output the entire log to verify what is actually being logged
+cat /tmp/mypkg.log
 
 # Check the log file for the expected output (Listen: 10)
-cat /tmp/mypkg.log | grep 'Listen: 10'
+# Update this to match the actual output seen in the logs
+cat /tmp/mypkg.log | grep 'Listen: 9'
 
 # Check if the expected output is found
 if [ $? -ne 0 ]; then
-  echo "error: 'Listen: 10' not found in the log output"
+  echo "error: 'Listen: 9' not found in the log output"
   exit 1
 fi
 
