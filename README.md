@@ -21,7 +21,7 @@ talker2.py, listener2.py
 talk_listen2.launch.py
 * talker2.py と listener2.py の launchファイル
 
-# リポジトリの使用方法
+# 📥リポジトリの使用方法
 
 ターミナルで以下のコマンドを実行する
 ```
@@ -33,11 +33,11 @@ $ colcon build
 
 # talker と listener
 
-## 機能
+## ⚙️ 機能
 
 talker.py で１ずつ加算したnをpublishし、listener.py でnをsubscribeする
 
-## 使用方法
+## 📝使い方
 先述したlaunchファイルを実行する
 ```
 $ cd ~/ros2_ws/
@@ -59,15 +59,15 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 ## talker2 とlistener2
 
-## 機能
+## ⚙️ 機能
 
 pythonを用いてカウントダウンとカウントアップを行う
 
 
-## 使いかた
-
-以下のコマンドで実行が可能
+## 📝使い方
+先述したlaunchファイルを実行する
 ```
+$ cd ~/ros2_ws/
 $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 ```   
    
@@ -101,29 +101,33 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 ```
 
 ## ノードとトピック
-ノード   
+*ノード*   
 `/talker_node`   
-* このノードは、指定されたモードに応じてカウントアップまたはカウントダウンを行い、その結果をパブリッシュします。   
-* 引数で指定されたmodeに基づき、値は増加または減少します。   
-* タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（/countupまたは/countdown）にデータをパブリッシュします。   
+- このノードは、指定されたモードに応じてカウントアップまたはカウントダウンを行い、その結果をパブリッシュします。   
+- 引数で指定されたmodeに基づき、値は増加または減少します。   
+- タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（/countupまたは/countdown）にデータをパブリッシュします。   
    
 `/listener_node`   
-* このノードは、/countupまたは/countdownトピックからデータを受信し、その内容をログに出力します。   
-* リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で表示します。   
+- このノードは、/countupまたは/countdownトピックからデータを受信し、その内容をログに出力します。   
+- リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で表示します。   
    
-トピック   
+*トピック*   
 `/countup` (タイプ: std_msgs/msg/Int16)   
-* カウントアップ用のトピックです。このトピックでは、数値が増加するデータがパブリッシュされます。
+- カウントアップ用のトピックです。このトピックでは、数値が増加するデータがパブリッシュされます。
 
 `/countdown` (タイプ: std_msgs/msg/Int16)   
-* カウントダウン用のトピックです。このトピックでは、数値が減少するデータがパブリッシュされます。  
+- カウントダウン用のトピックです。このトピックでは、数値が減少するデータがパブリッシュされます。  
+
+## 🖥️必要なソフトウェア
+- *Python*  
+テスト済みバージョン: 3.7 ~ 3.10
 
 
-# テスト環境
+# 🌍テスト環境
 * Ubuntu 24.04.1 LTS
 * Python 3.7 ~ 3.10
 
-# LICENSE
+# 📄LICENSE
 
 * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
 * このパッケージのコードは，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
