@@ -74,7 +74,7 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 # カウントアップの場合   
 $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10   
 ```   
-※ start_value:=　の後ろの数字でカウントを始めるタイミングを設定します。   
+※ start_value:=　の後ろの数字でカウントの開始タイミングを設定します。   
    
 カウントダウンの出力(例)
 ```
