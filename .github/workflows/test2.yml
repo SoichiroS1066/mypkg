@@ -50,8 +50,9 @@ jobs:
               echo "Python${version} not found, skipping"
               continue
             fi
+            # Install pip using get-pip.py
             curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-            python${version} get-pip.py
+            sudo python${version} get-pip.py
             rm get-pip.py
           done
 
