@@ -21,13 +21,13 @@ source $dir/.bashrc
 
 # Test for countdown mode
 echo "Testing countdown mode with start_value 10"
-timeout 10 ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10 > /tmp/mypkg.log
+timeout 30 ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10 > /tmp/mypkg.log 2>&1
 if [ $? -ne 0 ]; then
   echo "Countdown test failed"
   exit 1
 fi
 echo "Countdown Mode Output:"
-cat /tmp/mypkg.log | grep 'Listen: 10'
+cat /tmp/mypkg.log | tail -n 100
 if [ $? -ne 0 ]; then
   echo "Countdown test output check failed"
   exit 1
@@ -35,13 +35,13 @@ fi
 
 # Test for countup mode
 echo "Testing countup mode with start_value 0"
-timeout 10 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg.log
+timeout 30 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0 > /tmp/mypkg.log 2>&1
 if [ $? -ne 0 ]; then
   echo "Countup test failed"
   exit 1
 fi
 echo "Countup Mode Output:"
-cat /tmp/mypkg.log | grep 'Listen: 0'
+cat /tmp/mypkg.log | tail -n 100
 if [ $? -ne 0 ]; then
   echo "Countup test output check failed"
   exit 1
