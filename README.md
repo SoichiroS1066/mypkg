@@ -129,7 +129,7 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0
 *ノード*   
 `/talker_node`   
 - 指定されたモードに応じてカウントアップまたはカウントダウンを行い、その結果をパブリッシュする   
-- 引数で指定されたmodeに基づき、値は増加または減少します。   
+- 引数で指定されたmodeに基づき、値は増加または減少する   
 - タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（`/countup`または`/countdown`）にデータをパブリッシュする   
    
 `/listener_node`   
