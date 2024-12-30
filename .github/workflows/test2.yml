@@ -1,51 +1,31 @@
-name: test
+name: test2
 
 on:
   push:
     branches:
-      - main  # mainブランチへのpushで実行
+      - main  # Adjust to the branch you want to trigger the tests on
 
 jobs:
-  # Pythonバージョンを指定してテストを実行するジョブ
-  python_tests:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]  # テストするPythonバージョン
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Install Python and pip
-      run: |
-        sudo apt update
-        sudo apt install -y python${{ matrix.python-version }} python${{ matrix.python-version }}-pip python${{ matrix.python-version }}-distutils
-
-    - name: Install dependencies (if necessary)
-      run: |
-        python${{ matrix.python-version }} -m pip install --upgrade pip
-        # 必要に応じて依存関係をインストールする
-
-    - name: Grant execute permissions
-      run: chmod +x ./test/test_month_days.bash  # 実行ファイル名を修正
-
-    - name: Run tests
-      run: |
-        bash -xv ./test/test_month_days.bash  # テストスクリプトを実行
-
-  # ROS2コンテナでビルドとテストを実行するジョブ
-  ros2_tests:
+  test:
     runs-on: ubuntu-22.04
-    container: ryuichiueda/ubuntu22.04-ros2:latest  # ROS2のコンテナイメージを使用
+    container: ryuichiueda/ubuntu22.04-ros2:latest  # ROS 2 container image
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Build and test
-      run: |
-        rsync -av ./ /root/ros2_ws/src/mypkg/
-        cd /root/ros2_ws/
-        bash -xv ./src/mypkg/test/test.bash /root
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3
 
+      - name: Build and test the package
+        run: |
+          # Copy the package source files to the workspace
+          rsync -av ./ /root/ros2_ws/src/mypkg/
+
+          # Navigate to the workspace
+          cd /root/ros2_ws/
+
+          # Run the test script
+          bash -xv ./src/mypkg/test/test2.bash /root
