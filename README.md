@@ -1,6 +1,5 @@
 # mypkg
 [![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/test.yml/badge.svg)
 ![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/test2.yml/badge.svg)
 <img src="https://img.shields.io/badge/ROS%202-00A1A7.svg?logo=ros&logoColor=white&style=for-the-badge" alt="ROS 2">
 <img src="https://img.shields.io/badge/-Python-yellow.svg?logo=python&style=for-the-badge">
@@ -72,9 +71,10 @@ $ cd ~/ros2_ws/
 $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10   
    
 # カウントアップの場合   
-$ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=0   
+$ ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0   
 ```   
-※ start_value:=　の後ろの数字でカウントの開始タイミングを設定します。   
+※1 mode:= の後ろに*countdown*又は*countup*を入力しモードを設定します   
+※2 start_value:=　の後ろの数字でカウントの開始タイミングを設定します   
    
 カウントダウンの出力(例)
 ```
@@ -104,6 +104,26 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 [talker2-1] [INFO] [1735581197.869741800] [talker_node]: Countdown finished.
 [listener2-2] [INFO] [1735581197.872502100] [listener_node]: Listen: 0
 ```
+   
+カウントアップの出力(例)   
+```
+$ ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0
+[INFO] [launch]: All log files can be found below /home/suzuki/.ros/log/2024-12-31-05-05-03-245404-DESKTOP-VKJQDU9-1453
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [talker2-1]: process started with pid [1456]
+[INFO] [listener2-2]: process started with pid [1457]
+[talker2-1] [INFO] [1735589104.726828800] [talker_node]: Countup: 0
+[listener2-2] [INFO] [1735589104.735680200] [listener_node]: Listen: 0
+[talker2-1] [INFO] [1735589105.715204500] [talker_node]: Countup: 1
+[listener2-2] [INFO] [1735589105.718284600] [listener_node]: Listen: 1
+[talker2-1] [INFO] [1735589106.715367500] [talker_node]: Countup: 2
+[listener2-2] [INFO] [1735589106.718504600] [listener_node]: Listen: 2
+[talker2-1] [INFO] [1735589107.715251400] [talker_node]: Countup: 3
+[listener2-2] [INFO] [1735589107.718213400] [listener_node]: Listen: 3
+...
+...
+```   
+
 
 ## ノードとトピック
 *ノード*   
@@ -133,7 +153,7 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 # 🌍テスト環境
 - Ubuntu 22.04 LTS
 - Python 3.12.3
-- ROS2 
+- ROS2 humble
 
 # 📄LICENSE
 
