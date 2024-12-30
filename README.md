@@ -9,17 +9,17 @@
 こちらは、千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
 
 # リポジトリの概要
-talker.py, listener.py
-* クラスやメソッドを用いて、publisherとsubscriberを実装
+*talker.py, listener.py*
+- クラスやメソッドを用いて、publisherとsubscriberを実装
 
-talk_listen.launch.py
-* talker.py と listener.py の launchファイル
+*talk_listen.launch.py*
+- talker.py と listener.py の launchファイル
 
-talker2.py, listener2.py
-* カウントアップとカウントダウン機能を実装
+*talker2.py, listener2.py*
+- カウントアップとカウントダウン機能を実装
 
-talk_listen2.launch.py
-* talker2.py と listener2.py の launchファイル
+*talk_listen2.launch.py*
+- talker2.py と listener2.py の launchファイル
 
 # 📥リポジトリの使用方法
 
@@ -57,7 +57,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 ...
 ```  
 
-## talker2 とlistener2
+# talker2 とlistener2
 
 ## ⚙️ 機能
 
@@ -118,7 +118,7 @@ $ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
 `/countdown` (タイプ: std_msgs/msg/Int16)   
 - カウントダウン用のトピックです。このトピックでは、数値が減少するデータがパブリッシュされます。  
 
-## 🖥️必要なソフトウェア
+# 🖥️必要なソフトウェア
 - *Python*  
 テスト済みバージョン: 3.7 ~ 3.10
 
