@@ -1,6 +1,6 @@
-name: ROS 2 Package Test
+name: test2
 
-on: 
+on:
   push:
     branches:
       - main  # Adjust to the branch you want to trigger the tests on
@@ -14,11 +14,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3
+
       - name: Build and test the package
         run: |
           # Copy the package source files to the workspace
           rsync -av ./ /root/ros2_ws/src/mypkg/
-          
+
           # Navigate to the workspace
           cd /root/ros2_ws/
 

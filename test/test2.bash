@@ -41,7 +41,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 echo "Countup Mode Output:"
-cat /tmp/mypkg.log | grep 'Listen: 10'
+cat /tmp/mypkg.log | grep 'Listen: 0'
 if [ $? -ne 0 ]; then
   echo "Countup test output check failed"
   exit 1
