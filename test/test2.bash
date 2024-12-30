@@ -38,10 +38,10 @@ source $dir/.bashrc
 # Test 1: Run the ROS 2 launch file with countdown mode and start value set to 10
 timeout 10 ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10 > /tmp/mypkg_countdown.log
 
-# Check the log file for the expected output (Listen: 10)
-cat /tmp/mypkg_countdown.log | grep 'Listen: 10'
+# Check the log file for the expected output (Countdown: 10)
+cat /tmp/mypkg_countdown.log | grep 'Countdown: 10'
 if [ $? -ne 0 ]; then
-  echo "error: 'Listen: 10' not found in the countdown log output"
+  echo "error: 'Countdown: 10' not found in the countdown log output"
   exit 1
 fi
 
@@ -51,12 +51,12 @@ timeout 30 ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0
 # Output the entire log to verify what is actually being logged
 cat /tmp/mypkg_countup.log
 
-# Check the log file for the expected output (Listen: 9)
-cat /tmp/mypkg_countup.log | grep 'Listen: 9'
+# Check the log file for the expected output (Countup: 9)
+cat /tmp/mypkg_countup.log | grep 'Countup: 9'
 
 # Check if the expected output is found
 if [ $? -ne 0 ]; then
-  echo "error: 'Listen: 9' not found in the countup log output"
+  echo "error: 'Countup: 9' not found in the countup log output"
   exit 1
 else
   echo "OK"

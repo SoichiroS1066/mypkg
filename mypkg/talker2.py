@@ -5,14 +5,22 @@ from std_msgs.msg import Int16
 class Timer(Node):
     def __init__(self):
         super().__init__('timer')
-        self.pub = self.create_publisher(Int16, 'countup', 10)
         
-        # 引数を取得
+        # パラメータを取得
         mode = self.declare_parameter('mode', 'countup').value
         start_value = self.declare_parameter('start_value', 10).value
 
         self.mode = mode
         self.value = start_value
+
+        # トピック名を動的に決定
+        if self.mode == 'countdown':
+            topic_name = 'countdown'
+        else:
+            topic_name = 'countup'
+
+        # パブリッシャーを作成
+        self.pub = self.create_publisher(Int16, topic_name, 10)
 
         # タイマーを1秒ごとに設定
         self.timer = self.create_timer(1.0, self.cb)
@@ -25,7 +33,7 @@ class Timer(Node):
             msg.data = self.value
             self.value -= 1  # 1秒ごとに減少
             self.get_logger().info(f"Countdown: {msg.data}")
-            
+
             if self.value < 0:  # 0未満に達したら停止
                 self.get_logger().info("Countdown finished.")
                 self.timer.cancel()  # タイマーを停止

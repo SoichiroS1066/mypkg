@@ -24,7 +24,10 @@ def generate_launch_description():
         Node(
             package="mypkg",
             executable="listener2",
-            name="listener_node"
+            name="listener_node",
+            parameters=[{
+                'mode': LaunchConfiguration('mode')
+            }]
         )
     ])
 
