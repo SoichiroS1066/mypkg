@@ -26,7 +26,9 @@ setup(
             'talker = mypkg.talker:main',      # オリジナルのtalker
             'listener = mypkg.listener:main',  # オリジナルのlistener
             'talker2 = mypkg.talker2:main',    # 新しいtalker2
-            'listener2 = mypkg.listener2:main' # 新しいlistener2
+            'listener2 = mypkg.listener2:main', # 新しいlistener2
+            'counter_processor = mypkg.counter_processor:main',  # 新しい統合ノード
+            'counter_processor_sub1 = mypkg.counter_processor_sub1:main'  # 新しいサブスクライバノード
         ],
     },
 )

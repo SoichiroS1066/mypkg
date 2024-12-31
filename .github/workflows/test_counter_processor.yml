@@ -1,0 +1,43 @@
+name: Test Counter Processor
+
+on:
+  push:
+    branches:
+      - main  # 必要に応じて、テストを実行したいブランチに変更
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    container: ryuichiueda/ubuntu22.04-ros2:latest  # 使用するコンテナ
+
+    steps:
+      # リポジトリの内容をチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # ROS 2 ワークスペースのセットアップとビルド
+      - name: Set up ROS 2 workspace
+        run: |
+          # ROS 2 のセットアップ
+          apt-get update && apt-get install -y python3-colcon-common-extensions
+          mkdir -p /root/ros2_ws/src/mypkg
+
+          # ソースコードをコンテナ内にコピー
+          rsync -av ./ /root/ros2_ws/src/mypkg/
+
+          # ワークスペースをビルド
+          cd /root/ros2_ws
+          colcon build
+
+          # ROS 2 環境のセットアップ
+          source /root/ros2_ws/install/setup.bash
+
+      # テストスクリプトの実行
+      - name: Run test script
+        run: |
+          # 実行前に環境を整える
+          source /root/ros2_ws/install/setup.bash
+
+          # テストスクリプトの実行
+          bash -xv /root/ros2_ws/src/mypkg/test/test_counter_processor.bash /root
+

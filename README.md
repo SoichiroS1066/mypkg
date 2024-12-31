@@ -1,6 +1,6 @@
 # mypkg
 [![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/test2.yml/badge.svg)
+![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/test_counter_processor.yml/badge.svg)
 <img src="https://img.shields.io/badge/ROS%202-00A1A7.svg?logo=ros&logoColor=white&style=for-the-badge" alt="ROS 2">
 <img src="https://img.shields.io/badge/-Python-yellow.svg?logo=python&style=for-the-badge">
 
