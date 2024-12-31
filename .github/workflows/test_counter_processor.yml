@@ -19,6 +19,17 @@ jobs:
     steps:
     - name: Check out the repository
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # すべての履歴を取得
+
+    - name: Check repository structure
+      run: |
+        echo "Listing repository contents:"
+        ls /github/home  # Check if the workspace is checked out correctly
+        ls /github/home/ros2_ws  # Check if the ros2_ws folder exists
+        ls /github/home/ros2_ws/src  # Check if the src folder exists
+        ls /github/home/ros2_ws/src/mypkg  # Check if the mypkg folder exists
+        ls /github/home/ros2_ws/src/mypkg/test  # Check if the test folder exists
 
     - name: Set up ROS 2 environment
       run: |
@@ -27,15 +38,9 @@ jobs:
         python3 -m pip install -U setuptools
         rosdep update
 
-    - name: Create ros2_ws workspace if necessary
+    - name: Create missing directories
       run: |
-        # Create the workspace directory if not exists
-        mkdir -p ~/ros2_ws/src/mypkg
-        # Ensure that the workspace src folder is properly set up
-        echo "Checking src/mypkg/test directory"
-        ls ~/ros2_ws/src  # Check src directory
-        ls ~/ros2_ws/src/mypkg  # Check mypkg directory
-        ls ~/ros2_ws/src/mypkg/test  # Check test directory
+        mkdir -p ~/ros2_ws/src/mypkg/test
 
     - name: Install dependencies
       run: |
