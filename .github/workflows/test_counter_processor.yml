@@ -22,6 +22,11 @@ jobs:
       with:
         fetch-depth: 0  # すべての履歴を取得
 
+    - name: Create ros2_ws directory if it doesn't exist
+      run: |
+        mkdir -p ~/ros2_ws/src/mypkg/test
+        echo "ros2_ws directory created"
+
     - name: Check repository structure
       run: |
         echo "Listing repository contents:"
@@ -37,10 +42,6 @@ jobs:
         sudo apt install -y python3-pip python3-colcon-common-extensions python3-rosdep
         python3 -m pip install -U setuptools
         rosdep update
-
-    - name: Create missing directories
-      run: |
-        mkdir -p ~/ros2_ws/src/mypkg/test
 
     - name: Install dependencies
       run: |
