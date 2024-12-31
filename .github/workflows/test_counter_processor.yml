@@ -34,21 +34,21 @@ jobs:
         sudo rosdep init
         rosdep update
 
-    # ROS 2 ワークスペースをビルド
-    - name: Build ROS 2 workspace
+    # ROS 2 ワークスペースを作成
+    - name: Create ROS 2 workspace
       run: |
-        cd ros2_ws
+        mkdir -p ~/ros2_ws/src
+        cd ~/ros2_ws
         colcon build --symlink-install
 
     # ROS 2 ワークスペースをソース
     - name: Source ROS 2 setup
       run: |
-        source ros2_ws/install/setup.bash
+        source ~/ros2_ws/install/setup.bash
 
     # Bashスクリプトを実行（テスト）
     - name: Run Counter Processor Test
       run: |
-        # 実行するbashスクリプトのパスを指定
         chmod +x ros2_ws/src/mypkg/test/test_counter_processor.bash
         ros2_ws/src/mypkg/test/test_counter_processor.bash
       env:
