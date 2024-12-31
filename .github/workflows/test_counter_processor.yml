@@ -29,6 +29,15 @@ jobs:
         # sudo rosdep init  # 初期化を行わないようにコメントアウト
         rosdep update
 
+    - name: Create ros2_ws workspace
+      run: |
+        # Create the ros2_ws workspace if it doesn't exist
+        mkdir -p ~/ros2_ws/src
+        cd ~/ros2_ws/src
+        # Checkout the repository if the workspace is not set up
+        ln -s /github/workspace mypkg
+        cd ~/ros2_ws
+
     - name: Install dependencies
       run: |
         cd ~/ros2_ws
