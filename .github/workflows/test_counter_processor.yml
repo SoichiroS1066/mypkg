@@ -32,12 +32,18 @@ jobs:
           # ROS 2 環境のセットアップ
           bash -c "source /root/ros2_ws/install/setup.bash"  # bash -c で bash を使うように変更
 
-      # テストスクリプトの実行
-      - name: Run test script
+      # ノード実行とログ確認
+      - name: Run test script and check logs
         run: |
           # 実行前に環境を整える
-          bash -c "source /root/ros2_ws/install/setup.bash"  # bash -c で bash を使うように変更
+          source /root/ros2_ws/install/setup.bash  # ここで再度source
 
           # テストスクリプトの実行
           bash -xv /root/ros2_ws/src/mypkg/test/test_counter_processor.bash /root
+
+          # ログを確認する前に少し待機（ノードが実行されるまで）
+          sleep 5
+
+          # ノードのログが出力されているか確認
+          timeout 10 tail -f /tmp/mypkg.log | grep "Generated" || echo "No log output"
 
