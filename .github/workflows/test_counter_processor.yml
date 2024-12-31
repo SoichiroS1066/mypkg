@@ -27,17 +27,15 @@ jobs:
         python3 -m pip install -U setuptools
         rosdep update
 
-    - name: Create ros2_ws workspace
+    - name: Create ros2_ws workspace if necessary
       run: |
-        # Create the ros2_ws workspace if it doesn't exist
-        mkdir -p ~/ros2_ws/src
-        cd ~/ros2_ws/src
-        # Checkout the repository into ros2_ws/src/mypkg
-        ln -s /github/workspace mypkg
-        ls ~/ros2_ws/src  # デバッグ: srcディレクトリの中身を表示
-        ls ~/ros2_ws/src/mypkg  # デバッグ: mypkgディレクトリの中身を表示
-        ls ~/ros2_ws/src/mypkg/test  # デバッグ: testディレクトリの中身を表示
-        cd ~/ros2_ws
+        # Create the workspace directory if not exists
+        mkdir -p ~/ros2_ws/src/mypkg
+        # Ensure that the workspace src folder is properly set up
+        echo "Checking src/mypkg/test directory"
+        ls ~/ros2_ws/src  # Check src directory
+        ls ~/ros2_ws/src/mypkg  # Check mypkg directory
+        ls ~/ros2_ws/src/mypkg/test  # Check test directory
 
     - name: Install dependencies
       run: |
@@ -55,8 +53,7 @@ jobs:
 
     - name: Run counter_processor test script
       run: |
-        # デバッグ: testディレクトリの中身を再確認
-        ls ~/ros2_ws/src/mypkg/test
         cd ~/ros2_ws/src/mypkg/test
+        ls  # List the contents of the test directory
         ./test_counter_processor.bash
 
