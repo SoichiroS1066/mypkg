@@ -49,7 +49,8 @@ jobs:
         colcon build
 
     - name: Source ROS 2 workspace
-      run: source ~/ros2_ws/install/setup.bash
+      run: |
+        bash -c "source ~/ros2_ws/install/setup.bash"
 
     - name: Run counter_processor test script
       run: |
