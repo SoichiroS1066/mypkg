@@ -41,10 +41,10 @@ jobs:
         cd ~/ros2_ws
         colcon build --symlink-install
 
-    # ROS 2 ワークスペースをソース
+    # ROS 2 ワークスペースをソース（bashを使ってsourceを実行）
     - name: Source ROS 2 setup
       run: |
-        source ~/ros2_ws/install/setup.bash
+        bash -c "source ~/ros2_ws/install/setup.bash"
 
     # Bashスクリプトを実行（テスト）
     - name: Run Counter Processor Test
