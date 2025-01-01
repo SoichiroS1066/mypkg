@@ -8,7 +8,9 @@
 こちらは、千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
 
 # リポジトリの概要
-- *talker.py, listener.py*
+- *talker.py*
+
+- *listener.py*
 
 - *talk_listen.launch.py*
 
