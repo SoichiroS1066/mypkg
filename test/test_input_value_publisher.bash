@@ -14,10 +14,12 @@ colcon build
 source install/setup.bash
 
 # 正しい入力（整数）をパブリッシュ
-echo "15" | ros2 run mypkg input_value_publisher
-sleep 1
+echo "15" | ros2 run mypkg input_value_publisher &
+# パブリッシュ処理の終了を待つ
+wait $!
+sleep 1  # 少し待機してから次の処理に進む
 
-# 正しい入力がパブリッシュされているか（標準出力を確認）
+# 正しい入力がパブリッシュされているか確認
 if [ $? -eq 0 ]; then
   echo "Correct input test: OK"
 else
@@ -25,13 +27,15 @@ else
 fi
 
 # 誤った入力（整数以外）をパブリッシュ
-echo "abc" | ros2 run mypkg input_value_publisher
-sleep 1
+echo "abc" | ros2 run mypkg input_value_publisher &
+# パブリッシュ処理の終了を待つ
+wait $!
+sleep 1  # 少し待機してから次の処理に進む
 
-# 誤った入力がパブリッシュされていないことを確認
+# 誤った入力が処理されていないか確認
 if [ $? -eq 0 ]; then
   echo "Incorrect input test: Failed"
 else
-  echo "Incorrect input test: Failed"  # 誤った入力を処理していない場合はFailed
+  echo "Incorrect input test: Failed"  # 誤った入力を処理していない場合
 fi
 
