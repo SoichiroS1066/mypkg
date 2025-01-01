@@ -28,6 +28,7 @@ setup(
             'input_value_publisher = mypkg.input_value_publisher:main',  # パブリッシャーを追加
             'declare_number_sub = mypkg.declare_number_sub:main',        # サブスクライバーを追加
             'counter_processor = mypkg.counter_processor:main',
+            'response_bot_node = mypkg.response_bot_node:main',
         ],
     },
 )

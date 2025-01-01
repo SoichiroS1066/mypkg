@@ -4,44 +4,35 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int16
+from std_msgs.msg import Int16, String
 
 class CounterPublisherNode(Node):
     def __init__(self):
         super().__init__('counter_publisher_node')
+        self.int_publisher = self.create_publisher(Int16, 'input_data', 10)
+        self.str_publisher = self.create_publisher(String, 'input_string', 10)
 
-        # パブリッシャを作成（input_data トピック）
-        self.publisher = self.create_publisher(Int16, 'input_data', 10)
-
-    def send_input(self, data):
-        """入力された内容をサブスクライバへ送る"""
-        msg = Int16()
-        msg.data = data
-        self.publisher.publish(msg)
+    def send_input(self, data, data_type):
+        if data_type == "int":
+            msg = Int16()
+            msg.data = int(data)
+            self.int_publisher.publish(msg)
+        elif data_type == "str":
+            msg = String()
+            msg.data = data
+            self.str_publisher.publish(msg)
 
 def main():
     rclpy.init()
-
     publisher_node = CounterPublisherNode()
 
-    try:
-        # 数字を入力として受け取る
-        user_input = input("数字を入力してください: ")
-        
-        # 入力が数字かどうかをチェック
-        if not user_input.isdigit():
-            raise ValueError("無効な入力です。整数を入力してください。")
-        
-        # ユーザーが入力した数字をパブリッシュ
-        publisher_node.send_input(int(user_input))
+    user_input = input("入力してください: ")
 
-    except ValueError as e:
-        # 無効な入力の場合はエラーメッセージを表示して終了
-        print(e)
-        rclpy.shutdown()
-        exit(1)
+    if user_input.strip().isdigit():
+        publisher_node.send_input(user_input, "int")
+    else:
+        publisher_node.send_input(user_input, "str")
 
-    # ここでノードをシャットダウン
     rclpy.shutdown()
 
 if __name__ == '__main__':
