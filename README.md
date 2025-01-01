@@ -18,7 +18,7 @@
 - ユーザから入力された整数をinput_dataというトピックにpublish
 
 *counter_processor.py*
-- テスト用スクリプト(publisherから受信した数字を開始値としてカウントダウンとカウントアップ)
+- テスト用スクリプト(publisherから受信した数字を開始値としてcountupとcountdown)
 
 # 📥リポジトリの使用方法
 
