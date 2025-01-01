@@ -13,9 +13,9 @@ source install/setup.bash
 
 # 正しい整数値（5）でカウントアップ
 echo "5" | ros2 run mypkg input_value_publisher
-sleep 2  # 2秒待ってカウントアップの結果を確認
+sleep 2
 echo "5" | ros2 run mypkg counter_processor_node countup
-sleep 2  # 2秒待ってカウントアップの結果を確認
+sleep 2
 echo "Test Passed for Countup" > /tmp/test_result.log
 
 # 正しい整数値（5）でカウントダウン
