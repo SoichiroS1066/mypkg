@@ -15,7 +15,7 @@ source install/setup.bash
 
 # 正しい入力（整数）をパブリッシュ
 echo "10" | ros2 run mypkg input_value_publisher
-sleep 15
+sleep 1
 
 # 正しい入力がパブリッシュされているか（標準出力を確認）
 if [ $? -eq 0 ]; then
