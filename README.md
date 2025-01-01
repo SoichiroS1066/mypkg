@@ -16,7 +16,9 @@
 
 - *input_value_publisher.py*
 
-- *counter_processor.py*
+- *counter_processor.py* テスト用
+
+- *response_bot_node.py* テスト用
 
 # 📥リポジトリの使用方法
 
