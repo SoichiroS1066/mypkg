@@ -78,7 +78,7 @@ $ ros2 run mypkg input_value_publisher
 *ノード*   
 `CounterPublisherNode`   
 - Nodeクラスを継承し、`counter_publisher_node`という名前で初期化される
-   - メソッド：引数で受け取ったdataを`Int16型`のメッセージにセットし、`input_data`トピックに送信する
+   - メソッド：受け取ったdataを`int型`又は`str型`のメッセージとして、2つの異なる`input_data`トピックに送信する
     
 *トピック*   
 `input_data`(int型)
