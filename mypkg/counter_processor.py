@@ -6,9 +6,9 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int16
 
-class CounterProcessorSub1Node(Node):
+class CounterProcessorNode(Node):
     def __init__(self):
-        super().__init__('counter_processor_sub1_node')
+        super().__init__('counter_processor_node')
 
         # サブスクライバを作成（input_data トピック）
         self.subscription = self.create_subscription(
@@ -58,7 +58,7 @@ class CounterProcessorSub1Node(Node):
 
 def main():
     rclpy.init()
-    node = CounterProcessorSub1Node()
+    node = CounterProcessorNode()
     rclpy.spin(node)
     rclpy.shutdown()
 

@@ -31,7 +31,7 @@ def main():
     # ユーザーが入力した数字をパブリッシュ
     publisher_node.send_input(user_input)
 
-    rclpy.spin(publisher_node)
+    # ここでノードをシャットダウン
     rclpy.shutdown()
 
 if __name__ == '__main__':
