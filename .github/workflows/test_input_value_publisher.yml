@@ -1,27 +1,13 @@
-name: test_input_value_publisher
-on: 
-  push:
-    branches:
-      - main  # mainブランチへのpushでテストを実行
-
+name: test
+on: push
 jobs:
   test:
     runs-on: ubuntu-22.04
     container: ryuichiueda/ubuntu22.04-ros2:latest
     steps:
-      - uses: actions/checkout@v2  # リポジトリをクローン
-
-      - name: Build and test with bash
+      - uses: actions/checkout@v2
+      - name: build and test
         run: |
-          # リポジトリのファイルをコンテナ内にコピー
           rsync -av ./ /root/ros2_ws/src/mypkg/
-          
-          # 作業ディレクトリに移動
-          cd /root/ros2_ws
-          
-          # bashを使用してROS 2のセットアップを実行
-          bash -c "source /opt/ros/foxy/setup.bash && colcon build && source install/setup.bash"
-          
-          # テスト用bashファイルを実行
+          cd /root/ros2_ws/
           bash -xv ./src/mypkg/test/test_input_value_publisher.bash /root
-
