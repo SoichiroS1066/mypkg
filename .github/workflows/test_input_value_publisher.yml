@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-22.04
     container:
       image: ryuichiueda/ubuntu22.04-ros2
+      options: ""  # GPUオプションを削除
 
     steps:
     - name: Checkout repository
@@ -22,13 +23,14 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y python3-colcon-common-extensions
-        source /opt/ros/foxy/setup.bash
-        source ~/ros2_ws/install/setup.bash
+        echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+        echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+        source ~/.bashrc  # bashを使ってsourceを実行
 
     - name: Build ROS2 workspace
       run: |
         colcon build --packages-select mypkg
-        source ~/ros2_ws/install/setup.bash
+        source ~/.bashrc  # 再度sourceを実行
 
     - name: Run test for input_value_publisher
       run: |
