@@ -71,31 +71,23 @@ $ ros2 run mypkg input_value_publisher
 数字を入力してください:<> # 数字を入力しEnterを押すとパブリッシュされる
 ```   
 
+実行例
+```
+$ ros2 run mypkg input_value_publisher
+数字を入力してください: 0
+[INFO] [1735718007.423392200] [counter_publisher_node]: [pub] Sending data: 0
+```
 
 ## 💬ノードとトピック
 *ノード*   
-`/talker_node`   
-- 指定されたモードに応じてカウントアップまたはカウントダウンを行い、その結果をパブリッシュする   
-- 引数で指定されたmodeに基づき、値が増加または減少する   
-- タイマーを使用して、1秒ごとに値を更新し、指定されたトピック（`/countup`または`/countdown`）にデータをパブリッシュする   
-   
-`/listener_node`   
-- `/countup`または`/countdown`トピックからデータをサブスクライブし、その内容をログに出力する   
-- リスニングするトピックに応じて、受信したデータを「Listen: {data}」という形式で出力する   
-   
+`CounterPublisherNode`   
+- Nodeクラスを継承し、'counter_publisher_node`という名前で初期化される
+   - メソッド：引数で受け取ったdataを`Int16型`メッセージにセットし、`input_data`トピックに送信する
+    
 *トピック*   
-`/countup` (タイプ: std_msgs/msg/Int16)   
-- カウントアップ用のトピックで、数値が増加するデータがパブリッシュされる
+`input_data`(`Int16型`) 
+- ユーザーが入力した整数をこのトピックを通じて発行し、サブスクライバへ送る
 
-`/countdown` (タイプ: std_msgs/msg/Int16)   
-- カウントダウン用のトピックで、数値が減少するデータがパブリッシュされる   
-
-*パラメータ*   
-`mode`  
-- モード（`countup`または`countdown`）を指定するパラメータ（デフォルトは`countup`）
-
-`start_value`   
-- カウントダウンの開始値（デフォルトは10）
 
 # 🌍テスト環境
 - Ubuntu 22.04 LTS
