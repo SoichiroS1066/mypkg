@@ -15,10 +15,10 @@
 - talker.py と listener.py の launchファイル
 
 *input_value_publisher.py*
-- ユーザから入力された整数をinput_dataというトピックにパブリッシュ
+- ユーザから入力された整数をinput_dataというトピックにpublish
 
 *counter_processor.py*
-- テスト用スクリプト(パブリッシャから受信した数字を開始値としてカウントダウンとカウントアップ)
+- テスト用スクリプト(publisherから受信した数字を開始値としてカウントダウンとカウントアップ)
 
 # 📥リポジトリの使用方法
 
@@ -59,8 +59,8 @@ $ ros2 launch mypkg talk_listen.launch.py
 # input_value_publisher
 
 ## ⚙️ 機能
-- ROS 2のノード`counter_publisher_node`を作成し、ユーザーから入力された整数を`input_data`というトピックにパブリッシュする
-- パブリッシュ後、プログラムを終了する
+- ROS 2のノード`counter_publisher_node`を作成し、ユーザーから入力された整数を`input_data`というトピックにpublishする
+- publish後、プログラムを終了する
 - 入力が整数でない場合はエラーメッセージを表示し、プログラムを終了する
 
 ## 📝使い方
@@ -68,7 +68,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 ```
 $ cd ~/ros2_ws/
 $ ros2 run mypkg input_value_publisher
-数字を入力してください:                 # 数字を入力しEnterを押すとパブリッシュされる
+数字を入力してください:                 # 数字を入力しEnterを押すとpublishされる
 ```   
 
 実行例
@@ -85,12 +85,12 @@ $ ros2 run mypkg input_value_publisher
     
 *トピック*   
 `input_data`(`Int16型`) 
-- ユーザーが入力した整数をこのトピックを通じて発行し、サブスクライバへ送る
+- ユーザーが入力した整数をこのトピックを通じて発行し、subscriberへ送る
 
 
 # 🌍テスト環境
 - Ubuntu 22.04 LTS
-- Python 3.12.3
+- Python 3.10~12.3
 - ROS2 humble
 
 # 📄LICENSE
