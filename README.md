@@ -78,7 +78,7 @@ $ ros2 run mypkg input_value_publisher
 *ノード*   
 `CounterPublisherNode`   
 - Nodeクラスを継承し、`counter_publisher_node`という名前で初期化される
-   - メソッド：受け取ったdataを`int型`又は`str型`のメッセージとして、2つの異なる`input_data`トピックに送信する
+   - メソッド：受け取ったdataを`int型`又は`str型`のメッセージとして、2つの異なる`input_data`トピックへ送信する
     
 *トピック*   
 `input_data`(int型)
@@ -91,7 +91,7 @@ $ ros2 run mypkg input_value_publisher
 - トピックタイプ：`std_msgs/msg/String`
 - ユーザーが入力したデータが整数でない場合、このトピックを通じて発行しsubscriberへ送る
 - ユーザーが入力したメッセージやコマンドを他のノードに伝える際に役立つ   
-例：ロボットに対する指示や状態メッセージ
+例：ロボットに対する指示, 状態メッセージ
 
 
 # 🌍テスト環境
@@ -102,6 +102,6 @@ $ ros2 run mypkg input_value_publisher
 # 📄LICENSE
 
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
-- このパッケージの *talker.py*, *listener.py*, *talk_listen.launch.py* は，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
+- このパッケージ内の *talker.py*, *listener.py*, *talk_listen.launch.py* は，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
     - [ryuichiueda/my_slides robosys_2024](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2024)
 - © 2025 Soichiro Suzuki
