@@ -1,6 +1,6 @@
 # mypkg
 [![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/test_input_value_publisher.yml/badge.svg)
+![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/test_counter_processor.yml/badge.svg)
 <img src="https://img.shields.io/badge/ROS%202-00A1A7.svg?logo=ros&logoColor=white&style=for-the-badge" alt="ROS 2">
 <img src="https://img.shields.io/badge/-Python-yellow.svg?logo=python&style=for-the-badge">
 
@@ -94,6 +94,6 @@ $ ros2 run mypkg input_value_publisher
 # 📄LICENSE
 
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
-- このパッケージのコードは，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
+- このパッケージの *talker.py*, *listener.py*, *talk_listen.launch.py* は，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
     - [ryuichiueda/my_slides robosys_2024](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2024)
-- © 2024 Soichiro Suzuki
+- © 2025 Soichiro Suzuki
