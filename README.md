@@ -90,7 +90,7 @@ $ ros2 run mypkg input_value_publisher
 
 # 🌍テスト環境
 - Ubuntu 22.04 LTS
-- Python 3.10~12.3
+- Python 3.10
 - ROS2 humble
 
 # 📄LICENSE
