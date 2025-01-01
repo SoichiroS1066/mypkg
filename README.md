@@ -16,7 +16,7 @@
 
 - *input_value_publisher.py*
 
-- *counter_processor.py
+- *counter_processor.py*
 
 # 📥リポジトリの使用方法
 
