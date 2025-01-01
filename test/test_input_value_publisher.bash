@@ -35,3 +35,25 @@ else
   echo "Incorrect input test: Failed"
 fi
 
+# 誤った入力（記号）をパブリッシュ
+echo "@#$%" | ros2 run mypkg input_value_publisher > /tmp/input_value_test.log 2>&1
+sleep 1
+
+# 記号やアルファベット以外の入力を検証
+if grep -q "無効な入力です。" /tmp/input_value_test.log; then
+  echo "Symbol input test: OK"  # 記号が含まれる入力がエラーとなり、ログに表示される場合 OK
+else
+  echo "Symbol input test: Failed"
+fi
+
+# 誤った入力（数字とアルファベットの混合）をパブリッシュ
+echo "123abc" | ros2 run mypkg input_value_publisher > /tmp/input_value_test.log 2>&1
+sleep 1
+
+# 混合入力を検証
+if grep -q "無効な入力です。" /tmp/input_value_test.log; then
+  echo "Mixed input test: OK"  # 混合入力がエラーとなり、ログに表示される場合 OK
+else
+  echo "Mixed input test: Failed"
+fi
+
