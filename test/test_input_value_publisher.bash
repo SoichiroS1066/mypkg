@@ -25,12 +25,12 @@ else
 fi
 
 # 誤った入力（整数以外）をパブリッシュ
-echo "abc" | ros2 run mypkg input_value_publisher
+echo "abc" | ros2 run mypkg input_value_publisher > /tmp/input_value_test.log 2>&1
 sleep 1
 
 # 誤った入力がパブリッシュされていないことを確認
-if [ $? -eq 1 ]; then  # 失敗コード 1 の場合
-  echo "Incorrect input test: OK"  # 誤った入力の失敗を確認したので OK
+if grep -q "無効な入力です。" /tmp/input_value_test.log; then
+  echo "Incorrect input test: OK"  # エラーメッセージがログに存在すれば OK
 else
   echo "Incorrect input test: Failed"
 fi
