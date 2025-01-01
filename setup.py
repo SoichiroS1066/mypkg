@@ -23,12 +23,10 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'talker = mypkg.talker:main',      # オリジナルのtalker
-            'listener = mypkg.listener:main',  # オリジナルのlistener
-            'talker2 = mypkg.talker2:main',    # 新しいtalker2
-            'listener2 = mypkg.listener2:main', # 新しいlistener2
-            'counter_processor = mypkg.counter_processor:main',  # 新しい統合ノード
-            'counter_processor_sub1 = mypkg.counter_processor_sub1:main'  # 新しいサブスクライバノード
+            'talker = mypkg.talker:main',                  # オリジナルのtalker
+            'listener = mypkg.listener:main',              # オリジナルのlistener
+            'input_value_publisher = mypkg.input_value_publisher:main',  # パブリッシャーを追加
+            'declare_number_sub = mypkg.declare_number_sub:main',        # サブスクライバーを追加
         ],
     },
 )
