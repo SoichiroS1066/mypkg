@@ -38,7 +38,7 @@ $ colcon build
 
 talker.py で１ずつ加算したnをpublishし、listener.py でnをsubscribeする
 
-## 📝使い方
+## 📝実行方法
 先述したlaunchファイルを実行する
 ```
 $ cd ~/ros2_ws/
@@ -64,7 +64,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 - ROS 2のノード`counter_publisher_node`を作成し、ユーザーから入力された整数、文字及び記号を`input_data`というトピックにpublishする
 - publish後、プログラムを終了する
 
-## 📝使い方
+## 📝実行方法
 先述したinput_value_publisher.pyを実行する
 ```
 $ cd ~/ros2_ws/
