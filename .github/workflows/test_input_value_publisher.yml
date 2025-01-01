@@ -1,13 +1,29 @@
 name: test_input_value_publisher
+
 on: push
+
 jobs:
   test:
     runs-on: ubuntu-22.04
     container: ryuichiueda/ubuntu22.04-ros2:latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9, 3.10]
     steps:
       - uses: actions/checkout@v2
-      - name: build and test
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r /root/ros2_ws/src/mypkg/requirements.txt || true
+      - name: Sync files to container
         run: |
           rsync -av ./ /root/ros2_ws/src/mypkg/
+      - name: Build and test
+        run: |
           cd /root/ros2_ws/
           bash -xv ./src/mypkg/test/test_input_value_publisher.bash /root
+
