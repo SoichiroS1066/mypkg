@@ -4,17 +4,25 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int16
+from std_msgs.msg import Int16, String
 
 class CounterProcessorNode(Node):
     def __init__(self):
         super().__init__('counter_processor_node')
 
         # サブスクライバを作成（input_data トピック）
-        self.subscription = self.create_subscription(
+        self.subscription_int = self.create_subscription(
             Int16,
             'input_data',
-            self.listener_callback,
+            self.listener_callback_int,
+            10
+        )
+
+        # サブスクライバを作成（input_string トピック）
+        self.subscription_str = self.create_subscription(
+            String,
+            'input_string',
+            self.listener_callback_str,
             10
         )
 
@@ -34,10 +42,14 @@ class CounterProcessorNode(Node):
         # タイマーを作成（1秒ごとにカウントアップまたはカウントダウンを実行）
         self.timer = self.create_timer(1.0, self.timer_callback)
 
-    def listener_callback(self, msg):
-        """受け取った初期値を設定"""
+    def listener_callback_int(self, msg):
+        """整数データを受信"""
         self.start_value = msg.data
         self.get_logger().info(f"Received initial value: {self.start_value}")
+
+    def listener_callback_str(self, msg):
+        """文字列データを受信（エラーとして処理）"""
+        self.get_logger().error(f"Invalid input received: {msg.data}. Expected an integer.")
 
     def timer_callback(self):
         """カウントアップまたはカウントダウンを実行"""
