@@ -1,5 +1,5 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2024 Soichiro Suzuki
+# SPDX-FileCopyrightText: 2025 Soichiro Suzuki
 # SPDX-License-Identifier: BSD-3-Clause
 
 source /opt/ros/humble/setup.bash
