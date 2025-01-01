@@ -29,9 +29,9 @@ echo "abc" | ros2 run mypkg input_value_publisher
 sleep 1
 
 # 誤った入力がパブリッシュされていないことを確認
-if [ $? -eq 0 ]; then
-  echo "Incorrect input test: Failed"
+if [ $? -eq 1 ]; then  # 失敗コード 1 の場合
+  echo "Incorrect input test: OK"  # 誤った入力の失敗を確認したので OK
 else
-  echo "Incorrect input test: OK"
+  echo "Incorrect input test: Failed"
 fi
 
