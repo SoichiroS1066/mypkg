@@ -13,11 +13,14 @@ class CounterPublisherNode(Node):
         # パブリッシャを作成（input_data トピック）
         self.publisher = self.create_publisher(Int16, 'input_data', 10)
 
+        # ログレベルを変更してINFOログを表示しない
+        self.get_logger().set_level(rclpy.logging.LoggingSeverity.ERROR)
+
     def send_input(self, data):
         """入力された内容をサブスクライバへ送る"""
         msg = Int16()
         msg.data = data
-        self.get_logger().info(f"[pub] Sending data: {msg.data}")
+        # ここではログを表示しない
         self.publisher.publish(msg)
 
 def main():
