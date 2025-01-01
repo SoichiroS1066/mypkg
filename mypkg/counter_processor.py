@@ -4,72 +4,61 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int16, String
+from std_msgs.msg import Int16
 
-class CounterProcessorNode(Node):
+class CounterProcessorSub1Node(Node):
     def __init__(self):
-        super().__init__('counter_processor_node')
+        super().__init__('counter_processor_sub1_node')
 
-        # モードと初期値のパラメータを取得
-        self.mode = self.declare_parameter('mode', 'countup').value
-        self.start_value = self.declare_parameter('start_value', 10).value
-
-        self.get_logger().info(f"Processor mode: {self.mode}, Start value: {self.start_value}")
-
-        # カウント変数を初期化
-        self.value = self.start_value
-
-        # パブリッシャーを作成（成果物用のトピック）
-        self.processed_pub = self.create_publisher(Int16, 'processed_data', 10)
-
-        # サブスクライバを作成（入力データのトピック）
-        self.input_sub = self.create_subscription(
-            String,
+        # サブスクライバを作成（input_data トピック）
+        self.subscription = self.create_subscription(
+            Int16,
             'input_data',
-            self.input_callback,
+            self.listener_callback,
             10
         )
 
-        # 内部タイマーで生成を行う
-        self.timer = self.create_timer(1.0, self.generate_data)
+        # 初期値を保持する変数
+        self.start_value = None
+        self.mode = None  # モードを設定する変数
 
-    def input_callback(self, msg):
-        """サブスクライバのコールバック関数: 新しいモードまたは開始値の受け取り"""
-        if msg.data == 'countup':
-            self.mode = 'countup'
-        elif msg.data == 'countdown':
-            self.mode = 'countdown'
+        # コマンドライン引数でモードを設定
+        import sys
+        if len(sys.argv) > 1:
+            self.mode = sys.argv[1].lower()  # 引数でモードを設定 (countup または countdown)
+
+        if self.mode not in ["countup", "countdown"]:
+            self.get_logger().error("Invalid mode specified. Use 'countup' or 'countdown'.")
+            rclpy.shutdown()
+
+        # タイマーを作成（1秒ごとにカウントアップまたはカウントダウンを実行）
+        self.timer = self.create_timer(1.0, self.timer_callback)
+
+    def listener_callback(self, msg):
+        """受け取った初期値を設定"""
+        self.start_value = msg.data
+        self.get_logger().info(f"Received initial value: {self.start_value}")
+
+    def timer_callback(self):
+        """カウントアップまたはカウントダウンを実行"""
+        if self.start_value is not None:
+            if self.mode == "countup":
+                self.start_value += 1
+                self.get_logger().info(f"Countup output: {self.start_value}")
+            elif self.mode == "countdown":
+                self.start_value -= 1
+                self.get_logger().info(f"Countdown output: {self.start_value}")
+
+                # カウントダウンが0になった場合、終了メッセージを表示
+                if self.start_value == 0:
+                    self.get_logger().info("Countdown complete. Stopping...")
+                    self.timer.cancel()  # タイマーを停止
         else:
-            try:
-                # メッセージが整数であれば開始値を更新
-                new_value = int(msg.data)
-                self.start_value = new_value
-                self.value = new_value  # 新しい値をカウントの開始値として設定
-                self.get_logger().info(f"Updated start value to: {new_value}")
-            except ValueError:
-                self.get_logger().warn(f"Invalid input: {msg.data}, expected integer for start value.")
-
-    def generate_data(self):
-        """データ生成部分: countup または countdown"""
-        msg = Int16()
-        if self.mode == 'countdown':
-            msg.data = self.value
-            self.value -= 1  # 1秒ごとに減少
-            self.get_logger().info(f"Generated (Countdown): {msg.data}")
-            if self.value < 0:  # 0未満に達したら停止
-                self.get_logger().info("Countdown finished.")
-                self.timer.cancel()
-        else:
-            msg.data = self.value
-            self.value += 1  # 1秒ごとに増加
-            self.get_logger().info(f"Generated (Countup): {msg.data}")
-
-        # 生成されたデータをそのまま processed_data トピックに配信
-        self.processed_pub.publish(msg)
+            self.get_logger().info("Waiting for initial value...")
 
 def main():
     rclpy.init()
-    node = CounterProcessorNode()
+    node = CounterProcessorSub1Node()
     rclpy.spin(node)
     rclpy.shutdown()
 
