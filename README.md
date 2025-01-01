@@ -78,11 +78,18 @@ $ ros2 run mypkg input_value_publisher
 *ノード*   
 `CounterPublisherNode`   
 - Nodeクラスを継承し、`counter_publisher_node`という名前で初期化される
-   - メソッド：引数で受け取ったdataを`Int16型`のメッセージにセットし、`/input_data`トピックに送信する
+   - メソッド：引数で受け取ったdataを`Int16型`のメッセージにセットし、`input_data`トピックに送信する
     
 *トピック*   
-`/input_data`(`Int16型`) 
+`input_data`(int型)
+- トピックタイプ:`std_msgs/msg/Int16`
 - ユーザーが入力した整数をこのトピックを通じて発行し、subscriberへ送る
+- 数値計算などの数値に基づいた処理を行う他のノードと連携する際に役立つ（例：ロボットのセンサー値, 制御信号）
+   
+`input_data`(str型)
+- トピックタイプ：`std_msgs/msg/String`
+- ユーザーが入力したデータが整数でない場合、このトピックを通じて発行しsubscriberへ送る
+- ユーザーが入力したメッセージやコマンドを他のノードに伝える際に役立つ（例：ロボットに対する指示や状態メッセージ）
 
 
 # 🌍テスト環境
