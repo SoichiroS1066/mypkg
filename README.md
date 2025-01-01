@@ -68,14 +68,13 @@ $ ros2 launch mypkg talk_listen.launch.py
 ```
 $ cd ~/ros2_ws/
 $ ros2 run mypkg input_value_publisher
-数字を入力してください:<> # 数字を入力しEnterを押すとパブリッシュされる
+数字を入力してください:                 # 数字を入力しEnterを押すとパブリッシュされる
 ```   
 
 実行例
 ```
 $ ros2 run mypkg input_value_publisher
 数字を入力してください: 0
-[INFO] [1735718007.423392200] [counter_publisher_node]: [pub] Sending data: 0
 ```
 
 ## 💬ノードとトピック
