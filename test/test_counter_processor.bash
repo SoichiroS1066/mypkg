@@ -20,7 +20,6 @@ sleep 2  # counter_processorが起動するまで待機
 echo "5" | ros2 run mypkg input_value_publisher
 sleep 2  # 結果を待機
 kill $processor_pid  # counter_processorを停止
-ros2 daemon stop  # ROS 2のデーモンをシャットダウン
 echo "Test Passed for Countup" > /tmp/test_result.log
 
 # 正しい整数値（5）でカウントダウン
@@ -32,7 +31,6 @@ sleep 2
 echo "5" | ros2 run mypkg input_value_publisher
 sleep 2
 kill $processor_pid
-ros2 daemon stop  # ROS 2のデーモンをシャットダウン
 echo "Test Passed for Countdown" >> /tmp/test_result.log
 
 # 誤った入力（文字列）でカウントアップ
@@ -44,7 +42,6 @@ sleep 2
 echo "abc" | ros2 run mypkg input_value_publisher
 sleep 2
 kill $processor_pid
-ros2 daemon stop  # ROS 2のデーモンをシャットダウン
 if grep -q "Invalid mode specified" /tmp/test_result.log; then
     echo "Test Passed for Invalid Input" >> /tmp/test_result.log
 else
@@ -58,8 +55,4 @@ if grep -q "Test Passed" /tmp/test_result.log; then
 else
     echo "Test Failed"
 fi
-
-# 必ずrclpyをシャットダウン
-echo "Shutting down ROS 2..."
-ros2 daemon stop
 
