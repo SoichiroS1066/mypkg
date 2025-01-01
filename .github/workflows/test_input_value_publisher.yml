@@ -1,0 +1,38 @@
+name: Test input_value_publisher
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    container:
+      image: ryuichiueda/ubuntu22.04-ros2
+      options: --gpus all  # GPUを使う場合はオプションを追加
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up ROS2 environment
+      run: |
+        sudo apt update
+        sudo apt install -y python3-colcon-common-extensions
+        source /opt/ros/foxy/setup.bash
+        source ~/ros2_ws/install/setup.bash
+
+    - name: Build ROS2 workspace
+      run: |
+        colcon build --packages-select mypkg
+        source ~/ros2_ws/install/setup.bash
+
+    - name: Run test for input_value_publisher
+      run: |
+        chmod +x ros2_ws/src/mypkg/test/test_input_value_publisher.bash
+        ros2 run mypkg input_value_publisher 0
+
