@@ -9,7 +9,8 @@ jobs:
 
       - name: Set up ROS 2 environment
         run: |
-          source /opt/ros/foxy/setup.bash
+          # bashを使ってROS 2環境をセットアップ
+          bash -c "source /opt/ros/foxy/setup.bash"
 
       - name: Build and test
         run: |
@@ -18,7 +19,7 @@ jobs:
           
           # ビルドとセットアップ
           cd /root/ros2_ws/
-          source /opt/ros/foxy/setup.bash
+          bash -c "source /opt/ros/foxy/setup.bash"
           colcon build
           source install/setup.bash
           
