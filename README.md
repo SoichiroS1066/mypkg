@@ -61,7 +61,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 ## ⚙️ 機能
 - ROS 2のノード`counter_publisher_node`を作成し、ユーザーから入力された整数を`input_data`というトピックにパブリッシュする
 - パブリッシュ後、プログラムを終了する
-- 入力が整数でない場合はエラーメッセージを表示し、無効な入力時にはプログラムを終了する
+- 入力が整数でない場合はエラーメッセージを表示し、プログラムを終了する
 
 ## 📝使い方
 先述したinput_value_publisher.pyを実行する
