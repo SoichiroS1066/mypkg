@@ -7,10 +7,6 @@ dir=~
 [ "$1" != "" ] && dir="$1"
 
 cd $dir/ros2_ws
-# ROS 2のセットアップ
-source /opt/ros/foxy/setup.bash
-
-# パッケージのビルド
 colcon build
 source install/setup.bash
 
