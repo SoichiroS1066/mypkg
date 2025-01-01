@@ -56,3 +56,7 @@ else
     echo "Test Failed"
 fi
 
+# 必ずrclpyをシャットダウン
+echo "Shutting down ROS 2..."
+ros2 daemon stop
+
