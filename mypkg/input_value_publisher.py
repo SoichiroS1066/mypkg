@@ -25,11 +25,22 @@ def main():
 
     publisher_node = CounterPublisherNode()
 
-    # 数字を入力として受け取る
-    user_input = int(input("数字を入力してください: "))
+    try:
+        # 数字を入力として受け取る
+        user_input = input("数字を入力してください: ")
+        
+        # 入力が数字かどうかをチェック
+        if not user_input.isdigit():
+            raise ValueError("無効な入力です。整数を入力してください。")
+        
+        # ユーザーが入力した数字をパブリッシュ
+        publisher_node.send_input(int(user_input))
 
-    # ユーザーが入力した数字をパブリッシュ
-    publisher_node.send_input(user_input)
+    except ValueError as e:
+        # 無効な入力の場合はエラーメッセージを表示して終了
+        print(e)
+        rclpy.shutdown()
+        exit(1)
 
     # ここでノードをシャットダウン
     rclpy.shutdown()
