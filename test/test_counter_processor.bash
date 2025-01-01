@@ -12,27 +12,36 @@ colcon build
 source install/setup.bash
 
 # 正しい整数値（5）でカウントアップ
-# 先にcounter_processorを実行し、その後input_value_publisherで値を送信
-echo "5" | ros2 run mypkg counter_processor countup &
-sleep 2  # 2秒待機してカウントアップの結果を確認
+echo "カウントアップテスト開始"
+ros2 run mypkg counter_processor countup &
+processor_pid=$!  # プロセスIDを取得
+sleep 2  # counter_processorが起動するまで待機
+
 echo "5" | ros2 run mypkg input_value_publisher
-sleep 2  # 2秒待ってカウントアップの結果を確認
+sleep 2  # 結果を待機
+kill $processor_pid  # counter_processorを停止
 echo "Test Passed for Countup" > /tmp/test_result.log
 
 # 正しい整数値（5）でカウントダウン
-# 先にcounter_processorを実行し、その後input_value_publisherで値を送信
-echo "5" | ros2 run mypkg counter_processor countdown &
-sleep 2  # 2秒待ってカウントダウンの結果を確認
+echo "カウントダウンテスト開始"
+ros2 run mypkg counter_processor countdown &
+processor_pid=$!
+sleep 2
+
 echo "5" | ros2 run mypkg input_value_publisher
-sleep 2  # 2秒待ってカウントダウンの結果を確認
+sleep 2
+kill $processor_pid
 echo "Test Passed for Countdown" >> /tmp/test_result.log
 
 # 誤った入力（文字列）でカウントアップ
-# 先にcounter_processorを実行し、その後input_value_publisherで値を送信
-echo "abc" | ros2 run mypkg counter_processor countup &
-sleep 2  # 2秒待って文字列の入力に対するエラーハンドリングを確認
+echo "不正な入力テスト開始"
+ros2 run mypkg counter_processor countup &
+processor_pid=$!
+sleep 2
+
 echo "abc" | ros2 run mypkg input_value_publisher
-sleep 2  # 2秒待って文字列に対するカウントアップの結果を確認
+sleep 2
+kill $processor_pid
 if grep -q "Invalid mode specified" /tmp/test_result.log; then
     echo "Test Passed for Invalid Input" >> /tmp/test_result.log
 else
@@ -40,6 +49,7 @@ else
 fi
 
 # テスト結果の確認
+echo "テスト結果を確認中..."
 if grep -q "Test Passed" /tmp/test_result.log; then
     echo "OK"
 else
