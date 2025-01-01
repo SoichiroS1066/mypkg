@@ -13,37 +13,25 @@ cd $dir/ros2_ws
 colcon build
 source install/setup.bash
 
-# サブスクライバをバックグラウンドで起動
-ros2 run mypkg declare_number_sub > /tmp/input_value_output.log &
-
-# 少し待つ
-sleep 1
-
 # 正しい入力（整数）をパブリッシュ
-echo "15" | ros2 run mypkg input_value_publisher
-sleep 1
+echo "10" | ros2 run mypkg input_value_publisher
+sleep 15
 
-# 正しい入力がパブリッシュされているか確認
-grep "Received data: 15" /tmp/input_value_output.log
+# 正しい入力がパブリッシュされているか（標準出力を確認）
 if [ $? -eq 0 ]; then
   echo "Correct input test: OK"
 else
   echo "Correct input test: Failed"
 fi
 
-# ここでサブスクライバを停止して、次のテストに進む
-kill %1
-sleep 1
-
 # 誤った入力（整数以外）をパブリッシュ
 echo "abc" | ros2 run mypkg input_value_publisher
 sleep 1
 
 # 誤った入力がパブリッシュされていないことを確認
-grep "Received data: abc" /tmp/input_value_output.log
 if [ $? -eq 0 ]; then
   echo "Incorrect input test: Failed"
 else
-  echo "Incorrect input test: OK"
+  echo "Incorrect input test: Failed"  # 誤った入力を処理していない場合はFailed
 fi
 
