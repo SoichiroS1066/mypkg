@@ -17,7 +17,7 @@ source install/setup.bash
 echo "10" | ros2 run mypkg input_value_publisher
 sleep 1
 
-# 正しい入力がパブリッシュされているか（標準出力を確認）
+# 正しい入力がパブリッシュされたか確認
 if [ $? -eq 0 ]; then
   echo "Correct input test: OK"
 else
@@ -32,6 +32,6 @@ sleep 1
 if [ $? -eq 0 ]; then
   echo "Incorrect input test: Failed"
 else
-  echo "Incorrect input test: Failed"  # 誤った入力を処理していない場合はFailed
+  echo "Incorrect input test: OK"
 fi
 
