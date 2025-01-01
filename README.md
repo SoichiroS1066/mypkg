@@ -14,11 +14,11 @@
 *talk_listen.launch.py*
 - talker.py と listener.py の launchファイル
 
-*talker2.py, listener2.py*
-- カウントアップとカウントダウン機能を実装
+*input_value_publisher.py*
+- ユーザから入力された整数をinput_dataというトピックにパブリッシュ
 
-*talk_listen2.launch.py*
-- talker2.py と listener2.py の launchファイル
+*counter_processor.py*
+- テスト用スクリプト
 
 # 📥リポジトリの使用方法
 
@@ -56,72 +56,19 @@ $ ros2 launch mypkg talk_listen.launch.py
 ...
 ```  
 
-# talker2 とlistener2
+# input_value_publisher
 
 ## ⚙️ 機能
-- talker2.py で１ずつ加算したnをpublishし、listener2.py でnをsubscribeする(カウントアップ)   
-- talker2.py で１ずつ減算したnをpublishし、listener2.py でnをsubscribeする(カウントダウン)   
+- ROS 2のノード`counter_publisher_node`を作成し、ユーザーから入力された整数を`input_data`というトピックにパブリッシュする
+- パブリッシュ後、プログラムを終了する
+- 入力が整数でない場合はエラーメッセージを表示し、無効な入力時にはプログラムを終了する
 
 ## 📝使い方
-先述したlaunchファイルを実行する
+先述したinput_value_publisher.pyを実行する
 ```
 $ cd ~/ros2_ws/
-   
-# カウントダウンの場合   
-$ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10   
-   
-# カウントアップの場合   
-$ ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0   
-```   
-※1. `mode:=` の後ろに`countdown`又は`countup`を入力しモードを設定する   
-※2. `start_value:=`　の後ろの数字でカウントの開始タイミングを設定する   
-   
-カウントダウンの出力(例)
-```
-$ ros2 launch mypkg talk_listen2.launch.py mode:=countdown start_value:=10
-[INFO] [launch]: All log files can be found below /home/suzuki/.ros/log/2024-12-31-02-53-06-543696-DESKTOP-VKJQDU9-892
-[INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [talker2-1]: process started with pid [895]
-[INFO] [listener2-2]: process started with pid [896]
-[talker2-1] [INFO] [1735581187.877669900] [talker_node]: Countdown: 10
-[listener2-2] [INFO] [1735581187.887264700] [listener_node]: Listen: 10
-[talker2-1] [INFO] [1735581188.868084000] [talker_node]: Countdown: 9
-[listener2-2] [INFO] [1735581188.871407800] [listener_node]: Listen: 9
-[talker2-1] [INFO] [1735581189.868231300] [talker_node]: Countdown: 8
-[listener2-2] [INFO] [1735581189.870746700] [listener_node]: Listen: 8
-[talker2-1] [INFO] [1735581190.868418100] [talker_node]: Countdown: 7
-[listener2-2] [INFO] [1735581190.871693900] [listener_node]: Listen: 7
-...
-...
-...
-[talker2-1] [INFO] [1735581194.868096300] [talker_node]: Countdown: 3
-[listener2-2] [INFO] [1735581194.870532100] [listener_node]: Listen: 3
-[talker2-1] [INFO] [1735581195.868101600] [talker_node]: Countdown: 2
-[listener2-2] [INFO] [1735581195.871517800] [listener_node]: Listen: 2
-[talker2-1] [INFO] [1735581196.868257300] [talker_node]: Countdown: 1
-[listener2-2] [INFO] [1735581196.871847200] [listener_node]: Listen: 1
-[talker2-1] [INFO] [1735581197.868351200] [talker_node]: Countdown: 0
-[talker2-1] [INFO] [1735581197.869741800] [talker_node]: Countdown finished.
-[listener2-2] [INFO] [1735581197.872502100] [listener_node]: Listen: 0
-```
-   
-カウントアップの出力(例)   
-```
-$ ros2 launch mypkg talk_listen2.launch.py mode:=countup start_value:=0
-[INFO] [launch]: All log files can be found below /home/suzuki/.ros/log/2024-12-31-05-05-03-245404-DESKTOP-VKJQDU9-1453
-[INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [talker2-1]: process started with pid [1456]
-[INFO] [listener2-2]: process started with pid [1457]
-[talker2-1] [INFO] [1735589104.726828800] [talker_node]: Countup: 0
-[listener2-2] [INFO] [1735589104.735680200] [listener_node]: Listen: 0
-[talker2-1] [INFO] [1735589105.715204500] [talker_node]: Countup: 1
-[listener2-2] [INFO] [1735589105.718284600] [listener_node]: Listen: 1
-[talker2-1] [INFO] [1735589106.715367500] [talker_node]: Countup: 2
-[listener2-2] [INFO] [1735589106.718504600] [listener_node]: Listen: 2
-[talker2-1] [INFO] [1735589107.715251400] [talker_node]: Countup: 3
-[listener2-2] [INFO] [1735589107.718213400] [listener_node]: Listen: 3
-...
-...
+$ ros2 run mypkg input_value_publisher
+数字を入力してください:<> # 数字を入力しEnterを押すとパブリッシュされる
 ```   
 
 
