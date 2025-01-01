@@ -2,6 +2,9 @@
 # SPDX-FileCopyrightText: 2024 Soichiro Suzuki
 # SPDX-License-Identifier: BSD-3-Clause
 
+# ROS 2 Humbleの環境を読み込む
+source /opt/ros/humble/setup.bash
+
 # コンテナ内で作業ディレクトリを指定
 dir=~
 [ "$1" != "" ] && dir="$1"
