@@ -8,17 +8,13 @@
 こちらは、千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
 
 # リポジトリの概要
-*talker.py, listener.py*
-- クラスやメソッドを用いて、publisherとsubscriberを実装
+- *talker.py, listener.py*
 
-*talk_listen.launch.py*
-- talker.py と listener.py の launchファイル
+- *talk_listen.launch.py*
 
-*input_value_publisher.py*
-- ユーザから入力された整数をinput_dataというトピックにpublish
+- *input_value_publisher.py*
 
-*counter_processor.py*
-- テスト用
+- *counter_processor.py
 
 # 📥リポジトリの使用方法
 
