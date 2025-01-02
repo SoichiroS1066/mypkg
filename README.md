@@ -7,21 +7,6 @@
 
 こちらは、千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
 
-# リポジトリの概要
-- *talker.py*
-
-- *listener.py*
-
-- *talk_listen.launch.py*
-
-- *input_value_publisher.py*
-
-- *counter_processor.py*
-   - テスト用
-
-- *response_bot_node.py*
-   - テスト用
-
 # 📥リポジトリの使用方法
 
 ターミナルで以下のコマンドを実行する
