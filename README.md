@@ -6,7 +6,15 @@
 
 
 こちらは、千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
-  
+
+# リポジトリの使用方法
+
+ターミナルで以下のコマンドを実行する
+```
+$ cd ~/ros2_ws/src/
+$ git clone https://github.com/SoichiroS1066/mypkg.git
+$ cd ~/ros2_ws/
+$ colcon build
 
 # input_value_publisher
 
@@ -26,9 +34,8 @@ $ ros2 run mypkg input_value_publisher
 
 ## ノードとトピック
 *ノード*   
-`CounterPublisherNode`   
-- Nodeクラスを継承し, `counter_publisher_node`という名前で初期化される
-   - メソッド：受け取ったdataを`int 型`または`str 型`のメッセージとして, 2つの異なる`input_data`トピックへ送信する
+`counter_publisher_node`   
+- メソッド：受け取ったdataを`int 型`または`str 型`のメッセージとして, 2つの異なる`input_data`トピックへ送信する
     
 *トピック*   
 `input_data`(int 型)
