@@ -6,7 +6,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 
-class ResponseNode(Node):
+class response_node(Node):
     def __init__(self):
         super().__init__('response_node')
         self.str_subscriber = self.create_subscription(String, 'input_string', self.listener_callback, 10)

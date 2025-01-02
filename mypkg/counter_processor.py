@@ -7,7 +7,7 @@ from rclpy.node import Node
 from std_msgs.msg import Int16, String
 import sys
 
-class CounterProcessorNode(Node):
+class counter_processor_node(Node):
     def __init__(self):
         super().__init__('counter_processor_node')
 

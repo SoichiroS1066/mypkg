@@ -6,7 +6,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int16, String
 
-class CounterPublisherNode(Node):
+class counter_publisher_node(Node):
     def __init__(self):
         super().__init__('counter_publisher_node')
         self.int_publisher = self.create_publisher(Int16, 'input_data', 10)
