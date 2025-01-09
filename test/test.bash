@@ -16,5 +16,6 @@ ros2 run mypkg skytree_weather_publisher &
 ros2 run mypkg listener &
 
 # サブスクライバが天気情報を受け取ったか確認
-timeout 10 tail -f /tmp/mypkg.log | grep '東京スカイツリーの天気情報'
+timeout 10 grep '東京スカイツリーの天気情報' /tmp/mypkg.log
+
 
