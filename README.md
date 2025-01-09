@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/-Python-yellow.svg?logo=python&style=for-the-badge">
 
 
-こちらは、千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
+こちらは, 千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
 
 # リポジトリの使用方法
 
@@ -20,8 +20,7 @@ $ colcon build
 # input_value_publisher
 
 ## 機能
-- 
-- 
+- OpenWeatherMap APIを使用し, 東京スカイツリーの天気情報をパブリッシュする
 
 ## 実行方法
 weather_publisher.pyを実行する
@@ -29,24 +28,29 @@ weather_publisher.pyを実行する
 $ ros2 run mypkg weather_publisher.py
 ``` 
 
-## ノードとトピック
-*ノード*   
-`counter_publisher_node`   
-- メソッド：受け取ったdataを`int 型`または`str 型`のメッセージとして, 2つの異なる`input_data`トピックへ送信する
-    
-*トピック*   
-`input_data`(int 型)
-- トピックタイプ:`std_msgs/msg/Int16`
-- ユーザーが入力した整数をこのトピックを通じて発行し, subscriberへ送る
-- 数値計算などの数値に基づいた処理を行う他のノードと連携する際に役立つ   
-例：ロボットのセンサー値, 制御信号
-   
-`input_data`(str 型)
-- トピックタイプ：`std_msgs/msg/String`
-- ユーザーが入力したデータが整数でない場合, このトピックを通じて発行しsubscriberへ送る
-- ユーザーが入力したメッセージやコマンドを他のノードに伝える際に役立つ   
-例：ロボットに対する指示, 状態メッセージ
+トピックで公開されているメッセージの確認方法
+```
+$ ros2 topic echo /weather_info
+```
 
+## ノード
+- ノード名: `weather_publisher`
+- 役割: 天気情報を取得し, 定期的にその情報をROS 2トピックにパブリッシュするノード
+- 主な機能:
+    - 天気情報の取得: OpenWeatherMap APIを使用して、東京スカイツリーの位置（緯度35.710063、経度139.8107）における天気情報を取得
+    - 天気情報のフォーマット: 天気, 気温, 湿度, 風速, 見晴らし評価
+    - パブリッシュ: 10秒ごとに天気情報をROS 2のトピックに送信
+
+## トピック
+トピック名: `/weather_info`
+- メッセージ型: `std_msgs.msg.String`
+- 役割: 天気情報を含む文字列メッセージを受け取るトピック
+- 内容:
+    - 天気（日本語で）
+    - 気温（°C）
+    - 湿度（%）
+    - 風速（m/s）
+    - 見晴らしの評価（天気に基づく）
 
 # テスト環境
 - *Ubuntu 22.04 LTS*
@@ -56,6 +60,6 @@ $ ros2 run mypkg weather_publisher.py
 # LICENSE
 
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
-- このパッケージ内の `talker.py`, `listener.py`, `talk_listen.launch.py` は，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
+- このパッケージ内の一部は，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
     - [ryuichiueda/my_slides robosys_2024](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2024)
 - © 2025 Soichiro Suzuki
