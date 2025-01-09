@@ -12,11 +12,11 @@ source $dir/.bashrc
 # skytree_weather_publisher.py の起動
 ros2 run mypkg skytree_weather_publisher &
 
-# サブスクライバーをバックグラウンドで実行
-ros2 run mypkg listener &
+# パブリッシャが起動するのを待機
+sleep 10
 
-# サブスクライバーが起動するのを待機
-sleep 2
+# サブスクライバをバックグラウンドで実行
+ros2 run mypkg listener &
 
 # トピックから天気情報を受信しているか確認
 timeout 10 ros2 topic echo /weather_info | grep '東京スカイツリーの天気情報'
