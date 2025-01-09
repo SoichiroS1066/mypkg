@@ -42,7 +42,7 @@ def get_weather_info(self):
 ```
 
 ## 実行方法
-skytree_weather_publisher.pyを実行する
+`skytree_weather_publisher`を実行する
 ```
 $ ros2 run mypkg skytree_weather_publisher
 ``` 
