@@ -23,8 +23,7 @@ $ colcon build
 - 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）を含んだトピックをパブリッシュする
 
 ## 前提条件 
-*Python requestsパッケージ*:
-- `weather_publisher.py`内でrequestsライブラリを使用し外部のOpenWeatherMap APIにアクセスしています。   
+*Python requestsパッケージ*: 
 - requestsがインストールされていない場合, APIから天気情報を取得できません。   
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください。
 ```
@@ -78,9 +77,16 @@ data: '東京スカイツリー: 天気: 快晴, 気温: 5.84°C, 湿度: 46%, �
     - 湿度（%）
     - 風速（m/s）
     - 見晴らしの評価（天気に基づく）
-## 注意点
-- OpenWeatherMap APIは1分毎のアクセス回数に制限があります。
 
+## 参考資料
+- 天気予報をアプリに組み込もう！おすすめAPIランキング10
+    - https://qiita.com/takuya77088/items/b3663f5d54d5f9501880
+- OpenWeather
+    - https://openweathermap.org/
+- OpenWeather の API を使ってみた
+    - https://qiita.com/noritakaIzumi/items/34f16e383f59f9c5d8cf
+- ZENRIN Maps API ディベロッパーズサイト「気象コンテンツ検索[天気情報]」
+    - https://developers.zmaps-api.com/v20/reference/webAPI/weather/search_weather_info.html
 # テスト環境
 - *Ubuntu 22.04 LTS*
 - *Python 3.10*
