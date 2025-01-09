@@ -10,5 +10,6 @@ colcon build
 source $dir/.bashrc
 timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
 
-cat /tmp/mypkg.log | grep 'Listen: 10'
+# サブスクライバが天気情報を受け取ったか確認
+cat /tmp/mypkg.log | grep '東京スカイツリーの天気情報'
 
