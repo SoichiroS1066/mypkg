@@ -23,8 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'weather_publisher = mypkg.weather_publisher:main',
-            'weather_subscriber = mypkg.weather_subscriber:main',
+            'skytree_weather_publisher = mypkg.skytree_weather_publisher:main',
             'weather_outfit_advisor = mypkg.weather_outfit_advisor:main',
         ],
     },
