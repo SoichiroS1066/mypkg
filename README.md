@@ -26,7 +26,6 @@ $ colcon build
 ## 実行方法
 weather_publisher.pyを実行する
 ```
-$ cd ~/ros2_ws/
 $ ros2 run mypkg weather_publisher.py
 ``` 
 
