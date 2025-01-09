@@ -24,7 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
             'skytree_weather_publisher = mypkg.skytree_weather_publisher:main',
-            'skytree_weather_outfit_advisor = mypkg.skytree_weather_outfit_advisor:main',
+            'listener = mypkg.listener:main',
         ],
     },
 )
