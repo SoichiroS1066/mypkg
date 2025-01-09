@@ -32,8 +32,7 @@ $ colcon build
 
 *OpenWeatherMap APIキー*（公式サイトで取得）:
 - OpenWeatherMap APIにアクセスするには, 個々のユーザーがAPIキーを取得する必要があります。
-- APIキーをプログラム内で使用して天気情報を取得するため, 使用する場合は自分のAPIキーを設定してください。
-`weather_publisher.py`
+- APIキーを`weather_publisher.py`内で使用して天気情報を取得するため, 自分のAPIキーを設定してください。
 ```
 def get_weather_info(self):
         api_key = "948ca567d0432133fbe253ca65c9d5fc"        # この行の""間に取得したAPIキーを上書き
