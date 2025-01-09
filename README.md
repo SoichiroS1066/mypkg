@@ -17,7 +17,7 @@ $ cd ~/ros2_ws/
 $ colcon build
 ```
 
-# weather_publisher
+# skytree_weather_publisher
 
 ## 機能
 - 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）を含んだトピックをパブリッシュする
@@ -35,16 +35,16 @@ $ sudo apt-get install python3-requests
 
 *OpenWeatherMap APIキー*（公式サイトで取得）:
 - OpenWeatherMap APIにアクセスするには, ユーザが個別のAPIキーを取得する必要があります。
-- 取得したAPIキーは`weather_publisher.py`内で以下の行に上書きしてください。
+- 取得したAPIキーは`skytree_weather_publisher.py`内で以下の行に上書きしてください。
 ```
 def get_weather_info(self):
         api_key = "ここに取得したAPIキーを上書き"
 ```
 
 ## 実行方法
-weather_publisher.pyを実行する
+skytree_weather_publisher.pyを実行する
 ```
-$ ros2 run mypkg weather_publisher.py
+$ ros2 run mypkg skytree_weather_publisher.py
 ``` 
 
 トピックで公開されているメッセージの確認方法
