@@ -38,7 +38,7 @@ $ sudo apt-get install python3-requests
 - 取得したAPIキーは`weather_publisher.py`内で以下の行に上書きしてください。
 ```
 def get_weather_info(self):
-        api_key = "948ca567d0432133fbe253ca65c9d5fc"        # この行の""間に取得したAPIキーを上書き
+        api_key = "ここに取得したAPIキーを上書き"
 ```
 
 ## 実行方法
