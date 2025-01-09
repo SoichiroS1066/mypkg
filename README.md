@@ -20,18 +20,15 @@ $ colcon build
 # input_value_publisher
 
 ## 機能
-- ROS 2のノード`counter_publisher_node`を作成し, ユーザーから入力された整数, 文字及び記号を`input_data`というトピックにpublishする
-- publish後, プログラムを終了する
+- 
+- 
 
 ## 実行方法
-先述したinput_value_publisher.pyを実行する
+weather_publisher.pyを実行する
 ```
 $ cd ~/ros2_ws/
-$ ros2 run mypkg input_value_publisher
-入力してください:
-```   
-※ 入力は数字, 文字, 記号に対応
-
+$ ros2 run mypkg weather_publisher.py
+``` 
 
 ## ノードとトピック
 *ノード*   
