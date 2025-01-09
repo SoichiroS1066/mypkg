@@ -4,12 +4,11 @@
 <img src="https://img.shields.io/badge/ROS%202-00A1A7.svg?logo=ros&logoColor=white&style=for-the-badge" alt="ROS 2">
 <img src="https://img.shields.io/badge/-Python-yellow.svg?logo=python&style=for-the-badge">
 
-
-こちらは, 千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージです。
+こちらは, 千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージです.
 
 # リポジトリの使用方法
 
-ターミナルで以下のコマンドを実行する
+ターミナルで以下のコマンドを実行します.
 ```
 $ cd ~/ros2_ws/src/
 $ git clone https://github.com/SoichiroS1066/mypkg.git
@@ -20,12 +19,12 @@ $ colcon build
 # skytree_weather_publisher
 
 ## 機能
-- 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）を含んだトピックをパブリッシュする
+- 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）を含んだトピックをパブリッシュします.
 
 ## 前提条件 
 *Python requestsパッケージ*: 
-- requestsがインストールされていない場合, APIから天気情報を取得できません。   
-- `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください。
+- requestsがインストールされていない場合, APIから天気情報を取得できません.
+- `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
 $ pip install requests
 ```
@@ -34,15 +33,15 @@ $ sudo apt-get install python3-requests
 ```
 
 *OpenWeatherMap APIキー*（公式サイトで取得）:
-- OpenWeatherMap APIにアクセスするには, ユーザが個別のAPIキーを取得する必要があります。
-- 取得したAPIキーは`skytree_weather_publisher.py`内で以下の行に上書きしてください。
+- OpenWeatherMap APIにアクセスするには, ユーザが個別のAPIキーを取得する必要があります.
+- 取得したAPIキーは`skytree_weather_publisher.py`内で以下の行に上書きしてください.
 ```
 def get_weather_info(self):
         api_key = "ここに取得したAPIキーを上書き"
 ```
 
 ## 実行方法
-`skytree_weather_publisher`を実行する
+以下のコマンドで実行可能です.
 ```
 $ ros2 run mypkg skytree_weather_publisher
 ``` 
