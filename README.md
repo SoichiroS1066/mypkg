@@ -81,6 +81,12 @@ data: '東京スカイツリー: 天気: 快晴, 気温: 5.84°C, 湿度: 46%, �
 ## 参考資料
 - 天気予報をアプリに組み込もう！おすすめAPIランキング10
     - https://qiita.com/takuya77088/items/b3663f5d54d5f9501880
+
+- 天気予報をアプリに組み込もう！おすすめAPIランキング
+Qiita記事「天気予報をアプリに組み込もう！おすすめAPIランキング10」
+
+
+
 - OpenWeather
     - https://openweathermap.org/
 - OpenWeather の API を使ってみた
