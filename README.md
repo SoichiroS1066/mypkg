@@ -22,10 +22,7 @@ $ colcon build
 ## 機能
 - 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）を含んだトピックをパブリッシュする
 
-## 前提条件
-*ROS 2*:
-- このパッケージはROS 2がインストールされていないと実行できません。  
- 
+## 前提条件 
 *Python requestsパッケージ*（`pip install requests`または`sudo apt-get install python3-requests`でインストール）:
 - `weather_publisher.py`内でrequestsライブラリを使用し外部のOpenWeatherMap APIにアクセスしています。   
 - requestsがインストールされていない場合, APIから天気情報を取得できません。   
