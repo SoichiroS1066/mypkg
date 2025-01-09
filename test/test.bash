@@ -15,7 +15,6 @@ ros2 run mypkg skytree_weather_publisher &
 # listener.py の起動
 ros2 run mypkg listener &
 
-# サブスクライバが天気情報を受け取ったか確認
-timeout 10 grep '東京スカイツリーの天気情報' /tmp/mypkg.log
-
+# サブスクライバのログを確認する方法を変更
+timeout 10 ros2 topic echo /weather_info | grep '東京スカイツリーの天気情報'
 
