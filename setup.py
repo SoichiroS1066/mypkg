@@ -18,13 +18,14 @@ setup(
     zip_safe=True,
     maintainer='Soichiro Suzuki',
     maintainer_email='s21c1066jy@s.chibakoudai.jp',
-    description='Weather data publisher and subscriber',
+    description='Weather data publisher',
     license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'weather_publisher = mypkg.weather_publisher:main',
             'weather_subscriber = mypkg.weather_subscriber:main',
+            'weather_outfit_advisor = mypkg.weather_outfit_advisor:main',
         ],
     },
 )
