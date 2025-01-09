@@ -17,7 +17,7 @@ $ cd ~/ros2_ws/
 $ colcon build
 ```
 
-# input_value_publisher
+# weather_publisher
 
 ## 機能
 - 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）を含んだトピックをパブリッシュする
@@ -27,7 +27,7 @@ $ colcon build
 - このパッケージはROS 2環境で実行されるため, ROS 2がインストールされていないと実行できません。  
  
 *Python requestsパッケージ*（`pip install requests`または`sudo apt-get install python3-requests`でインストール）:
-- プログラム内でrequestsライブラリを使用し外部のOpenWeatherMap APIにアクセスしています。   
+- `weather_publisher.py`内でrequestsライブラリを使用し外部のOpenWeatherMap APIにアクセスしています。   
 - requestsがインストールされていない場合, APIから天気情報を取得できません。   
 
 *OpenWeatherMap APIキー*（公式サイトで取得）:
