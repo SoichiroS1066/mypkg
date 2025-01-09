@@ -20,7 +20,21 @@ $ colcon build
 # input_value_publisher
 
 ## 機能
-- OpenWeatherMap APIを使用し, 東京スカイツリーの天気情報をパブリッシュする
+- 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）を含んだトピックをパブリッシュする
+
+## 前提条件
+ROS 2:
+- このパッケージはROS 2環境で実行されるため, ROS 2がインストールされていないと実行できません。
+Python requestsパッケージ（`pip install requests`または`sudo apt-get install python3-requests`でインストール）:
+- プログラム内でrequestsライブラリを使用し外部のOpenWeatherMap APIにアクセスしています。
+- requestsがインストールされていない場合, APIから天気情報を取得できません。
+OpenWeatherMap APIキー（公式サイトで取得）:
+- OpenWeatherMap APIにアクセスするには, 個々のユーザーがAPIキーを取得する必要があります。
+- APIキーをプログラム内で使用して天気情報を取得するため, 使用する場合は自分のAPIキーを設定してください。
+```
+def get_weather_info(self):
+        api_key = "948ca567d0432133fbe253ca65c9d5fc"        # この行の""間に取得したAPIキーを上書き
+```
 
 ## 実行方法
 weather_publisher.pyを実行する
@@ -31,6 +45,13 @@ $ ros2 run mypkg weather_publisher.py
 トピックで公開されているメッセージの確認方法
 ```
 $ ros2 topic echo /weather_info
+```
+```
+data: '東京スカイツリー: 天気: 快晴, 気温: 5.84°C, 湿度: 46%, 風速: 4.12 m/s, 見晴らし: 良好'
+---
+data: '東京スカイツリー: 天気: 快晴, 気温: 5.84°C, 湿度: 46%, 風速: 4.12 m/s, 見晴らし: 良好'
+---
+...
 ```
 
 ## ノード
@@ -51,6 +72,8 @@ $ ros2 topic echo /weather_info
     - 湿度（%）
     - 風速（m/s）
     - 見晴らしの評価（天気に基づく）
+## 注意点
+- OpenWeatherMap APIは1分毎のアクセス回数に制限があります。
 
 # テスト環境
 - *Ubuntu 22.04 LTS*
