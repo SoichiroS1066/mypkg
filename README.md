@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/-Python-yellow.svg?logo=python&style=for-the-badge">
 
 
-こちらは, 千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージのリポジトリです。
+こちらは, 千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージです。
 
 # リポジトリの使用方法
 
@@ -24,15 +24,15 @@ $ colcon build
 
 ## 前提条件
 *ROS 2*:
-- このパッケージはROS 2環境で実行されるため, ROS 2がインストールされていないと実行できません。  
+- このパッケージはROS 2がインストールされていないと実行できません。  
  
 *Python requestsパッケージ*（`pip install requests`または`sudo apt-get install python3-requests`でインストール）:
 - `weather_publisher.py`内でrequestsライブラリを使用し外部のOpenWeatherMap APIにアクセスしています。   
 - requestsがインストールされていない場合, APIから天気情報を取得できません。   
 
 *OpenWeatherMap APIキー*（公式サイトで取得）:
-- OpenWeatherMap APIにアクセスするには, 個々のユーザーがAPIキーを取得する必要があります。
-- APIキーを`weather_publisher.py`内で使用して天気情報を取得するため, 自分のAPIキーを設定してください。
+- OpenWeatherMap APIにアクセスするには, ユーザが個別のAPIキーを取得する必要があります。
+- 取得したAPIキーは`weather_publisher.py`内で以下の行に上書きしてください。
 ```
 def get_weather_info(self):
         api_key = "948ca567d0432133fbe253ca65c9d5fc"        # この行の""間に取得したAPIキーを上書き
