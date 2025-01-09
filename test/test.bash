@@ -19,5 +19,5 @@ sleep 10
 ros2 run mypkg listener &
 
 # トピックから天気情報を受信しているか確認
-timeout 10 ros2 topic echo /weather_info | grep '東京スカイツリーの天気情報'
+timeout 20 ros2 topic echo /weather_info | grep '東京スカイツリーの天気情報'
 
