@@ -38,8 +38,8 @@ class WeatherPublisher(Node):
                 
                 # 新たに追加された情報を含めたメッセージを作成
                 weather_info = (
-                    f"{city}: {weather_description}, {temp}°C, "
-                    f"Humidity: {humidity}%, Wind Speed: {wind_speed} m/s, "
+                    f"{city}: {weather_description}, {temp}, "
+                    f"Humidity: {humidity}, Wind Speed: {wind_speed}, "
                     f"Weather Icon: {icon}"
                 )
                 return weather_info
