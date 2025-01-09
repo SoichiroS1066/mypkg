@@ -22,7 +22,7 @@ $ colcon build
 - 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）を含んだトピックをパブリッシュします.
 
 ## 前提条件 
-*Python requestsパッケージ*: 
+*Python requestsパッケージ* 
 - requestsがインストールされていない場合, APIから天気情報を取得できません.
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
@@ -32,7 +32,7 @@ $ pip install requests
 $ sudo apt-get install python3-requests
 ```
 
-*OpenWeatherMap APIキー*（公式サイトで取得）:
+*OpenWeatherMap APIキー*（公式サイトで取得）
 - OpenWeatherMap APIにアクセスするには, ユーザが個別のAPIキーを取得する必要があります.
 - 取得したAPIキーは`skytree_weather_publisher.py`内で以下の行に上書きしてください.
 ```
