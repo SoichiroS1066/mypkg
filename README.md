@@ -57,7 +57,7 @@ $ sudo apt-get install python3-requests
 ```
 
 #### *OpenWeatherMap APIキー*（公式サイトで取得）
-- OpenWeatherMap APIにアクセスするには, ユーザ個別のAPIキーを取得する必要があります.
+- OpenWeatherMap API へアクセスするには, APIキーを取得する必要があります.
 - 取得したAPIキーは`skytree_weather_publisher.py`内の以下の行に設定してください.
 ```
 def get_weather_info(self):
