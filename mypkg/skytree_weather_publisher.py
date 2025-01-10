@@ -10,8 +10,8 @@ from std_msgs.msg import String
 class WeatherPublisher(Node):
     def __init__(self):
         super().__init__('weather_publisher')
-        self.publisher_ = self.create_publisher(String, '/weather_info', 6)
-        self.timer = self.create_timer(6.0, self.timer_callback)
+        self.publisher_ = self.create_publisher(String, '/weather_info', 1)
+        self.timer = self.create_timer(1.0, self.timer_callback)
 
     def timer_callback(self):
         weather_info = self.get_weather_info()
