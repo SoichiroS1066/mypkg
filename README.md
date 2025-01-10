@@ -36,7 +36,7 @@ $ colcon build
 
 ### weather_info (std_msgs/msg/String)
 
-- 役割: `weather_publisher`ノードがパブリッシュする天気情報を他のノードが利用するためのトピック
+- 役割: `weather_publisher`ノードが天気情報をパブリッシュするトピック
 - 内容:
     - 天気（16段階）
     - 気温（°C）
