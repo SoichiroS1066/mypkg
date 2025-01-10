@@ -22,7 +22,7 @@ $ colcon build
 - 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）を含んだトピックをパブリッシュします.
 
 ## 前提条件 
-*Python requestsパッケージ* 
+#### *Python requestsパッケージ* 
 - requestsがインストールされていない場合, APIから天気情報を取得できません.
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
@@ -32,7 +32,7 @@ $ pip install requests
 $ sudo apt-get install python3-requests
 ```
 
-*OpenWeatherMap APIキー*（公式サイトで取得）
+#### *OpenWeatherMap APIキー*（公式サイトで取得）
 - OpenWeatherMap APIにアクセスするには, ユーザが個別のAPIキーを取得する必要があります.
 - 取得したAPIキーは`skytree_weather_publisher.py`内で以下の行に上書きしてください.
 ```
@@ -63,7 +63,7 @@ data: '東京スカイツリー: 天気: 快晴, 気温: 5.84°C, 湿度: 46%, �
 
 ### weather_publisher
 
-- 役割: 天気情報を取得し, 定期的にその情報をROS 2トピックにパブリッシュする
+- 役割: 天気情報を取得し, 定期的に情報をトピックへパブリッシュする
 - 主な機能:
     - 天気情報の取得: OpenWeatherMap APIを使用して、東京スカイツリーの位置（緯度35.710063、経度139.8107）における天気情報を取得
     - 天気情報のフォーマット: 天気, 気温, 湿度, 風速, 見晴らし評価
@@ -89,8 +89,6 @@ data: '東京スカイツリー: 天気: 快晴, 気温: 5.84°C, 湿度: 46%, �
     - https://qiita.com/noritakaIzumi/items/34f16e383f59f9c5d8cf
 - OpenWeatherMap
     - https://openweathermap.org/
-- ZENRIN Maps API ディベロッパーズサイト「気象コンテンツ検索[天気情報]」
-    - https://developers.zmaps-api.com/v20/reference/webAPI/weather/search_weather_info.html
 
 # 注意事項
 以下はテスト用です
