@@ -46,7 +46,7 @@ $ colcon build
     - 見晴らしの評価（天気に基づく）
 
 ## 前提条件 
-#### *Python requestsパッケージ* 
+#### *python requestsパッケージ* 
 - requestsがインストールされていない場合, APIから天気情報を取得できません.
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
