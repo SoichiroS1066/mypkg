@@ -34,7 +34,7 @@ $ colcon build
 
 ### トピック
 
-### weather_info(std_msgs.msg.String)
+### weather_info (std_msgs/msg/String)
 
 - 役割: `weather_publisher`ノードがパブリッシュする天気情報を他のノードが利用するためのトピック
 - 内容:
