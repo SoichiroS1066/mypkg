@@ -8,14 +8,16 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package="mypkg",
-            executable="talker",
-            name="talker_node"
+            package="mypkg",  # パッケージ名
+            executable="skytree_weather_publisher",  # パブリッシャの実行ファイル名
+            name="weather_publisher_node",  # パブリッシャのノード名
+            output="screen"  # 標準出力を画面に表示
         ),
         Node(
-            package="mypkg",
-            executable="listener",
-            name="listener_node"
+            package="mypkg",  # パッケージ名
+            executable="listener",  # サブスクライバの実行ファイル名
+            name="listener_node",  # サブスクライバのノード名
+            output="screen"  # 標準出力を画面に表示
         )
     ])
 
