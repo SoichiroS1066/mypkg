@@ -99,7 +99,7 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
 - talk_listen.launch.py
 
 # 必要なソフトウェア
-- *Python*
+- *Python 3*
 - *ROS 2*
 
 # テスト環境
