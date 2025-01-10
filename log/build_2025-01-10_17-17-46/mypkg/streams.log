@@ -1,0 +1,52 @@
+[0.546s] Invoking command in '/home/suzuki/ros2_ws/src/mypkg': PYTHONPATH=/home/suzuki/ros2_ws/src/mypkg/build/mypkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/mypkg build --build-base /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build install --record /home/suzuki/ros2_ws/src/mypkg/build/mypkg/install.log --single-version-externally-managed install_data
+[0.728s] running egg_info
+[0.728s] creating build/mypkg/mypkg.egg-info
+[0.742s] writing build/mypkg/mypkg.egg-info/PKG-INFO
+[0.742s] writing dependency_links to build/mypkg/mypkg.egg-info/dependency_links.txt
+[0.742s] writing entry points to build/mypkg/mypkg.egg-info/entry_points.txt
+[0.742s] writing requirements to build/mypkg/mypkg.egg-info/requires.txt
+[0.742s] writing top-level names to build/mypkg/mypkg.egg-info/top_level.txt
+[0.742s] writing manifest file 'build/mypkg/mypkg.egg-info/SOURCES.txt'
+[0.771s] reading manifest file 'build/mypkg/mypkg.egg-info/SOURCES.txt'
+[0.771s] adding license file 'LICENSE'
+[0.772s] writing manifest file 'build/mypkg/mypkg.egg-info/SOURCES.txt'
+[0.772s] running build
+[0.772s] running build_py
+[0.773s] creating /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build
+[0.773s] creating /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib
+[0.773s] creating /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg
+[0.773s] copying mypkg/listener.py -> /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg
+[0.773s] copying mypkg/skytree_weather_publisher.py -> /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg
+[0.774s] copying mypkg/mount_fuji_weather_publisher.py -> /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg
+[0.774s] copying mypkg/mount_fuji_weather_subscriber.py -> /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg
+[0.774s] copying mypkg/__init__.py -> /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg
+[0.774s] running install
+[0.779s] running install_lib
+[0.793s] creating /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg
+[0.793s] copying /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg/listener.py -> /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg
+[0.793s] copying /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg/skytree_weather_publisher.py -> /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg
+[0.793s] copying /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg/mount_fuji_weather_publisher.py -> /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg
+[0.793s] copying /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg/mount_fuji_weather_subscriber.py -> /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg
+[0.793s] copying /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build/lib/mypkg/__init__.py -> /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg
+[0.794s] byte-compiling /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg/listener.py to listener.cpython-312.pyc
+[0.794s] byte-compiling /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg/skytree_weather_publisher.py to skytree_weather_publisher.cpython-312.pyc
+[0.795s] byte-compiling /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg/mount_fuji_weather_publisher.py to mount_fuji_weather_publisher.cpython-312.pyc
+[0.795s] byte-compiling /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg/mount_fuji_weather_subscriber.py to mount_fuji_weather_subscriber.cpython-312.pyc
+[0.796s] byte-compiling /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg/__init__.py to __init__.cpython-312.pyc
+[0.796s] running install_data
+[0.796s] creating /home/suzuki/ros2_ws/src/mypkg/install/mypkg/share/ament_index
+[0.796s] creating /home/suzuki/ros2_ws/src/mypkg/install/mypkg/share/ament_index/resource_index
+[0.796s] creating /home/suzuki/ros2_ws/src/mypkg/install/mypkg/share/ament_index/resource_index/packages
+[0.796s] copying resource/mypkg -> /home/suzuki/ros2_ws/src/mypkg/install/mypkg/share/ament_index/resource_index/packages
+[0.797s] copying package.xml -> /home/suzuki/ros2_ws/src/mypkg/install/mypkg/share/mypkg
+[0.797s] creating /home/suzuki/ros2_ws/src/mypkg/install/mypkg/share/mypkg/launch
+[0.797s] copying launch/talk_listen.launch.py -> /home/suzuki/ros2_ws/src/mypkg/install/mypkg/share/mypkg/launch
+[0.797s] running install_egg_info
+[0.812s] Copying build/mypkg/mypkg.egg-info to /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages/mypkg-0.0.0-py3.12.egg-info
+[0.812s] running install_scripts
+[0.897s] Installing listener script to /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/mypkg
+[0.898s] Installing mount_fuji_weather_publisher script to /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/mypkg
+[0.898s] Installing mount_fuji_weather_subscriber script to /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/mypkg
+[0.898s] Installing skytree_weather_publisher script to /home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/mypkg
+[0.898s] writing list of installed files to '/home/suzuki/ros2_ws/src/mypkg/build/mypkg/install.log'
+[0.920s] Invoked command in '/home/suzuki/ros2_ws/src/mypkg' returned '0': PYTHONPATH=/home/suzuki/ros2_ws/src/mypkg/build/mypkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/suzuki/ros2_ws/src/mypkg/install/mypkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/mypkg build --build-base /home/suzuki/ros2_ws/src/mypkg/build/mypkg/build install --record /home/suzuki/ros2_ws/src/mypkg/build/mypkg/install.log --single-version-externally-managed install_data

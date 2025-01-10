@@ -25,9 +25,6 @@ setup(
         'console_scripts': [
             'skytree_weather_publisher = mypkg.skytree_weather_publisher:main',
             'listener = mypkg.listener:main',
-            'skytree_weather_publisher2 = mypkg.skytree_weather_publisher2:main',
-            'listener2 = mypkg.listener2:main',
-            'traffic_and_facilities_publisher = mypkg.traffic_and_facilities_publisher:main',
         ],
     },
 )
