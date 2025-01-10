@@ -44,9 +44,9 @@ $ colcon build
     - 風速（m/s）
     - 見晴らしの評価（天気に基づく）
 
-## 前提条件 
+## 前提条件
 
-### *python requests モジュール* 
+### *python requests モジュール*
 - requests がインストールされていない場合, APIから天気情報を取得できません.
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
@@ -94,7 +94,7 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
     - https://openweathermap.org/
 
 # 注意事項
-以下はテスト用ファイルです
+以下はテスト用です
 - listener.py
 - talk_listen.launch.py
 
@@ -108,8 +108,7 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
 - *ROS 2 Humble*
 
 # LICENSE
-
-- このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+- このソフトウェアパッケージは, 3条項BSDライセンスの下, 再頒布および使用が許可されます.
 - このパッケージ内の一部は, 下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを, 本人の許可を得て自身の著作としたものです.
     - [ryuichiueda/my_slides robosys_2024](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2024)
 - © 2025 Soichiro Suzuki
