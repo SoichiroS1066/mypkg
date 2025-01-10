@@ -29,7 +29,7 @@ $ colcon build
 
 - 役割: 天気情報を取得し, 定期的に情報をトピックへパブリッシュ
 - 主な機能:
-    - 天気情報の取得: OpenWeatherMap API を使用して, 東京スカイツリー（緯度35.710063、経度139.8107）の天気情報を取得
+    - OpenWeatherMap API を使用して, 東京スカイツリー（緯度35.710139、経度139.810833）の天気情報を取得
     - 1秒ごとに天気情報をトピックにパブリッシュ
 
 ### トピック
@@ -84,6 +84,8 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
 ```
 
 ## 参考リンク
+- GeoHack - 東京スカイツリー
+    - https://geohack.toolforge.org/geohack.php?language=ja&pagename=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC&params=35_42_36.5_N_139_48_39_E_region:JP-13_type:landmark
 - 天気予報をアプリに組み込もう！おすすめAPIランキング10
     - https://qiita.com/takuya77088/items/b3663f5d54d5f9501880
 - OpenWeather の API を使ってみた
