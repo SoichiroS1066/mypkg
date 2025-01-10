@@ -92,6 +92,11 @@ data: '東京スカイツリー: 天気: 快晴, 気温: 5.84°C, 湿度: 46%, �
 - ZENRIN Maps API ディベロッパーズサイト「気象コンテンツ検索[天気情報]」
     - https://developers.zmaps-api.com/v20/reference/webAPI/weather/search_weather_info.html
 
+# 注意事項
+以下はテスト用です
+- listener.py
+- talk_listen.launch.py
+
 # テスト環境
 - *Ubuntu 22.04 LTS*
 - *Python 3.10*
