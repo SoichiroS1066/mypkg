@@ -10,8 +10,8 @@ from std_msgs.msg import String
 class WeatherPublisher(Node):
     def __init__(self):
         super().__init__('weather_publisher')
-        self.publisher_ = self.create_publisher(String, '/weather_info', 10)
-        self.timer = self.create_timer(10.0, self.timer_callback)
+        self.publisher_ = self.create_publisher(String, '/weather_info', 6)
+        self.timer = self.create_timer(6.0, self.timer_callback)
 
     def timer_callback(self):
         weather_info = self.get_weather_info()
@@ -21,8 +21,8 @@ class WeatherPublisher(Node):
 
     def get_weather_info(self):
         api_key = "948ca567d0432133fbe253ca65c9d5fc"
-        lat = 35.710063  # 東京スカイツリーの緯度
-        lon = 139.8107   # 東京スカイツリーの経度
+        lat = 35.710063  # 緯度
+        lon = 139.8107   # 経度
         url = f"http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric"
 
         try:
@@ -35,11 +35,8 @@ class WeatherPublisher(Node):
                 wind_speed = data['wind']['speed']
                 icon = data['weather'][0]['icon']
 
-                # 天気の説明を日本語に変換
-                weather_description_jp = self.translate_weather_description(weather_description)
-
-                # 見晴らしの評価を追加
-                visibility_rating = self.evaluate_visibility(icon)
+                weather_description_jp = self.translate_weather_description(weather_description)    # 天気の説明を日本語に変換
+                visibility_rating = self.evaluate_visibility(icon)  # 見晴らしの評価
 
                 weather_info = (
                     f"東京スカイツリー: 天気: {weather_description_jp}, "
@@ -52,8 +49,7 @@ class WeatherPublisher(Node):
         except Exception as e:
             return f"Error: {str(e)}"
 
-    def translate_weather_description(self, description):
-        # 英語の天気説明を日本語に翻訳
+    def translate_weather_description(self, description):   # 英語の天気説明を日本語に翻訳
         weather_map = {
             "clear sky": "快晴",
             "few clouds": "晴れ",
@@ -74,8 +70,7 @@ class WeatherPublisher(Node):
         }
         return weather_map.get(description, description)
 
-    def evaluate_visibility(self, icon):
-        # 天気に応じて見晴らしを評価
+    def evaluate_visibility(self, icon):    # 天気に応じて見晴らしを評価
         visibility_map = {
             "01d": "非常に良好",  # 快晴（昼）
             "01n": "良好",       # 快晴（夜）
