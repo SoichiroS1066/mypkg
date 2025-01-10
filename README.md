@@ -98,10 +98,6 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
 - listener.py
 - talk_listen.launch.py
 
-# 必要なソフトウェア
-- *Python 3*
-- *ROS 2*
-
 # テスト環境
 - *Ubuntu 22.04 LTS*
 - *Python 3.10*
