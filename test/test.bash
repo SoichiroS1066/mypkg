@@ -16,7 +16,7 @@ ros2 launch mypkg talk_listen.launch.py &
 sleep 10
 
 # トピックから天気情報を受信しているか確認（timeout 20秒）
-if timeout 20 ros2 topic echo /weather_info | grep -q '東京スカイツリーの天気情報'; then
+if timeout 20 ros2 topic echo /weather_info | grep -m 1 -q '東京スカイツリーの天気情報'; then
     echo "OK"
 else
     echo "Error: 天気情報の受信に失敗しました"
