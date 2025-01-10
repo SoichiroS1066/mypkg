@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/badge/ROS%202-00A1A7.svg?logo=ros&logoColor=white&style=for-the-badge" alt="ROS 2">
 <img src="https://img.shields.io/badge/-Python-yellow.svg?logo=python&style=for-the-badge">
 
-こちらは, 千葉工業大学先進工学部未来ロボティクス学科2年後期のロボットシステム学の講義で扱っているROS2のパッケージです.
+こちらは, 千葉工業大学先進工学部未来ロボティクス学科のロボットシステム学の講義で使用しているROS 2パッケージです。
 
 # リポジトリの使用方法
 
@@ -33,7 +33,7 @@ $ sudo apt-get install python3-requests
 ```
 
 #### *OpenWeatherMap APIキー*（公式サイトで取得）
-- OpenWeatherMap APIにアクセスするには, ユーザが個別のAPIキーを取得する必要があります.
+- OpenWeatherMap APIにアクセスするには, ユーザ個別のAPIキーを取得する必要があります.
 - 取得したAPIキーは`skytree_weather_publisher.py`内で以下の行に上書きしてください.
 ```
 def get_weather_info(self):
@@ -65,7 +65,7 @@ data: '東京スカイツリー: 天気: 快晴, 気温: 5.84°C, 湿度: 46%, �
 
 - 役割: 天気情報を取得し, 定期的に情報をトピックへパブリッシュする
 - 主な機能:
-    - 天気情報の取得: OpenWeatherMap API を使用して、東京スカイツリーの位置（緯度35.710063、経度139.8107）における天気情報を取得
+    - 天気情報の取得: OpenWeatherMap API を使用して、東京スカイツリー（緯度35.710063、経度139.8107）における天気情報を取得
     - 天気情報のフォーマット: 天気, 気温, 湿度, 風速, 見晴らし評価
     - 10秒ごとに天気情報をROS 2のトピックに送信
 
@@ -82,7 +82,7 @@ data: '東京スカイツリー: 天気: 快晴, 気温: 5.84°C, 湿度: 46%, �
     - 風速（m/s）
     - 見晴らしの評価（天気に基づく）
 
-## 参考資料
+## 参考リンク
 - 天気予報をアプリに組み込もう！おすすめAPIランキング10
     - https://qiita.com/takuya77088/items/b3663f5d54d5f9501880
 - OpenWeather の API を使ってみた
