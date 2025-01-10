@@ -45,7 +45,8 @@ $ colcon build
     - 見晴らしの評価（天気に基づく）
 
 ## 前提条件 
-#### *python requests パッケージ* 
+
+### *python requests モジュール* 
 - requests がインストールされていない場合, APIから天気情報を取得できません.
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
@@ -55,7 +56,7 @@ $ pip install requests
 $ sudo apt-get install python3-requests
 ```
 
-#### *OpenWeatherMap APIキー*（公式サイトで取得）
+### *OpenWeatherMap APIキー*（公式サイトで取得）
 - OpenWeatherMap API へアクセスするには, APIキーを取得する必要があります.
 - 取得したAPIキーは`skytree_weather_publisher.py`内の以下の行に設定してください.
 ```
@@ -97,10 +98,14 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
 - listener.py
 - talk_listen.launch.py
 
+# 必要なソフトウェア
+- *ROS 2*
+- *Python*
+
 # テスト環境
 - *Ubuntu 22.04 LTS*
 - *Python 3.10*
-- *ROS2 humble*
+- *ROS 2 Humble*
 
 # LICENSE
 
