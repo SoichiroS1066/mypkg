@@ -34,9 +34,8 @@ $ colcon build
 
 ### トピック
 
-### /weather_info
+### weather_info(std_msgs.msg.String)
 
-- メッセージ型: `std_msgs.msg.String`
 - 役割: `weather_publisher`ノードがパブリッシュする天気情報を他のノードが利用するためのトピック
 - 内容:
     - 天気
@@ -46,7 +45,7 @@ $ colcon build
     - 見晴らしの評価（天気に基づく）
 
 ## 前提条件 
-#### *python requestsパッケージ* 
+#### *python requests パッケージ* 
 - requests がインストールされていない場合, APIから天気情報を取得できません.
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
