@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/badge/ROS%202-00A1A7.svg?logo=ros&logoColor=white&style=for-the-badge" alt="ROS 2">
 <img src="https://img.shields.io/badge/-Python-yellow.svg?logo=python&style=for-the-badge">
 
-こちらは, 千葉工業大学先進工学部未来ロボティクス学科のロボットシステム学の講義で使用しているROS 2パッケージです。
+こちらは, 千葉工業大学先進工学部未来ロボティクス学科のロボットシステム学の講義で使用しているROS 2パッケージです.
 
 # リポジトリの使用方法
 
