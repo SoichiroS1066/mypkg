@@ -30,7 +30,7 @@ $ colcon build
 - 役割: 天気情報を取得し, 定期的に情報をトピックへパブリッシュ
 - 主な機能:
     - OpenWeatherMap API を使用して, 東京スカイツリー（緯度35.710139、経度139.810833）の天気情報を取得
-    - 1秒ごとに天気情報をトピックにパブリッシュ
+    - 1秒ごとに天気情報をパブリッシュ
 
 ### トピック
 
@@ -69,7 +69,7 @@ def get_weather_info(self):
 $ ros2 run mypkg skytree_weather_publisher
 ``` 
 
-トピックで公開されているメッセージの確認方法
+トピックで公開されているメッセージの確認方法（別端末）
 ```
 $ ros2 topic echo /weather_info
 ```
