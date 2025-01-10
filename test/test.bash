@@ -9,8 +9,8 @@ cd $dir/ros2_ws
 colcon build
 source $dir/.bashrc
 
-# talk_listen.launch.py の起動
-ros2 launch mypkg talk_listen.launch.py &
+# talk_listen.launch.py の起動（タイムアウトを設定）
+timeout 30 ros2 launch mypkg talk_listen.launch.py &
 
 # パブリッシャが起動するのを待機
 sleep 10
