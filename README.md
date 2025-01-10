@@ -47,7 +47,7 @@ $ colcon build
 
 ## 前提条件 
 #### *python requestsパッケージ* 
-- requestsがインストールされていない場合, APIから天気情報を取得できません.
+- `requests` がインストールされていない場合, APIから天気情報を取得できません.
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
 $ pip install requests
