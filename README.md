@@ -1,6 +1,6 @@
 # mypkg
 [![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/SoichiroS1066/mypkg/actions/workflows/skytree_weather_test.yml/badge.svg)
 <img src="https://img.shields.io/badge/ROS%202-00A1A7.svg?logo=ros&logoColor=white&style=for-the-badge" alt="ROS 2">
 <img src="https://img.shields.io/badge/-Python-yellow.svg?logo=python&style=for-the-badge">
 
@@ -47,7 +47,7 @@ $ colcon build
 ## 前提条件
 
 ### *python requests モジュール*
-- requests がインストールされていない場合, APIから天気情報を取得できません.
+- APIから天気情報を取得する際に使用します.
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
 $ pip install requests
@@ -58,17 +58,23 @@ $ sudo apt-get install python3-requests
 
 ### *python-dotenv モジュール*
 - `.env`ファイルからAPIキーを読み込む際に使用します.
+```
+$ pip install python-dotenv
+```
+```
+$ sudo apt install python3-dotenv
+```
 
 ### *OpenWeatherMap APIキー* （公式サイトで取得）
 - OpenWeatherMap API へアクセスするには, APIキーを取得する必要があります.
 
 ### *.env ファイルの作成*
-- `.env`ファイルに取得したAPIキーを登録します.
-- 以下の手順で`skytree_weather_publisher.py`と*同じディレクトリ*に`.env`を作成してください.
+- 取得したAPIキーを管理する際に使用します.
+- 以下の手順で`skytree_weather_publisher.py`と同じディレクトリに`.env`を作成してください.
 ```
 $ vi .env
 ```
-`.env` に記述する内容
+記述する内容
 ```
 OPENWEATHER_API_KEY=ここに取得したAPIキーを入力     # 例：OPENWEATHER_API_KEY=12345678910
 ```
