@@ -53,7 +53,7 @@ $ colcon build
 $ pip install requests
 ```
 ```
-$ sudo apt-get install python3-requests
+$ sudo apt install python3-requests
 ```
 
 ### *python-dotenv モジュール*
