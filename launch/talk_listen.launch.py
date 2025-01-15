@@ -9,7 +9,7 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package="mypkg",  # パッケージ名
-            executable="skytree_weather_publisher2",  # パブリッシャの実行ファイル名
+            executable="skytree_weather_publisher",  # パブリッシャの実行ファイル名
             name="weather_publisher_node",  # パブリッシャのノード名
             output="screen"  # 標準出力を画面に表示
         ),
