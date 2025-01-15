@@ -118,7 +118,6 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
 
 # テスト環境
 - *Ubuntu 22.04 LTS*
-- *Python 3.10*
 - *ROS 2 Humble*
 
 # LICENSE
