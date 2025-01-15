@@ -2,10 +2,15 @@
 # SPDX-FileCopyrightText: 2025 Soichiro Suzuki
 # SPDX-License-Identifier: BSD-3-Clause
 
+import os
 import rclpy
 from rclpy.node import Node
 import requests
 from std_msgs.msg import String
+from dotenv import load_dotenv
+
+# .envファイルがプログラムと同じディレクトリにある場合、ディレクトリの指定は不要
+load_dotenv()
 
 class WeatherPublisher(Node):
     def __init__(self):
@@ -20,7 +25,7 @@ class WeatherPublisher(Node):
         self.publisher_.publish(msg)
 
     def get_weather_info(self):
-        api_key = "948ca567d0432133fbe253ca65c9d5fc"
+        api_key = os.getenv("OPENWEATHER_API_KEY")
         lat = 35.710063  # 緯度
         lon = 139.8107   # 経度
         url = f"http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric"
