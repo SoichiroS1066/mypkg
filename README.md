@@ -36,17 +36,16 @@ $ colcon build
 
 ### weather_info (std_msgs/msg/String)
 
-- 役割: `weather_publisher`ノードが天気情報をパブリッシュするトピック
+- 役割: `weather_publisher`ノードがパブリッシュする天気情報を他のノードが利用するためのトピック
 - 内容:
-    - 天気（16段階）
+    - 天気
     - 気温（°C）
     - 湿度（%）
     - 風速（m/s）
     - 見晴らしの評価（天気に基づく）
 
-## 前提条件
-
-### *python requests モジュール*
+## 前提条件 
+#### *python requests モジュール* 
 - APIから天気情報を取得する際に使用します.
 - `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
 ```
@@ -56,28 +55,12 @@ $ pip install requests
 $ sudo apt-get install python3-requests
 ```
 
-### *python-dotenv モジュール*
-- `.env`ファイルからAPIキーを読み込む際に使用します.
-- `pip install python-dotenv`または`sudo apt install python3-dotenv`でインストールしてください.
-```
-$ pip install python-dotenv
-```
-```
-$ sudo apt install python3-dotenv
-```
-
-### *OpenWeatherMap APIキー* （公式サイトで取得）
+#### *OpenWeatherMap APIキー*（公式サイトで取得）
 - `skytree_weather_publisher.py`がOpenWeatherMap API へアクセスする際に使用します.
-
-### *.env ファイルの作成*
-- 取得したAPIキーを管理する際に使用します.
-- 以下の手順で`skytree_weather_publisher.py`と同じディレクトリに`.env`を作成してください.
+- 取得したAPIキーは`skytree_weather_publisher.py`内の以下の行に設定してください.
 ```
-$ vi .env
-```
-記述する内容
-```
-OPENWEATHER_API_KEY=ここに取得したAPIキーを入力     # 例：OPENWEATHER_API_KEY=12345678910
+def get_weather_info(self):
+        api_key = "ここに取得したAPIキーを設定"
 ```
 
 ## 実行方法
@@ -99,7 +82,7 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
 ---
 ```
 
-# 参考リンク
+## 参考リンク
 - GeoHack - 東京スカイツリー
     - https://geohack.toolforge.org/geohack.php?language=ja&pagename=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC&params=35_42_36.5_N_139_48_39_E_region:JP-13_type:landmark
 - 天気予報をアプリに組み込もう！おすすめAPIランキング10
@@ -108,21 +91,20 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
     - https://qiita.com/noritakaIzumi/items/34f16e383f59f9c5d8cf
 - OpenWeatherMap
     - https://openweathermap.org/
-- .envファイルで環境変数を設定する方法
-    - https://qiita.com/k-suna/items/ef782da10e66f642ddbc
 
 # 注意事項
-以下はテスト用です
+以下はテスト用ファイルです
 - listener.py
 - talk_listen.launch.py
 
 # テスト環境
 - *Ubuntu 22.04 LTS*
 - *Python 3.10*
-- *ROS 2 Humble*
+- *ROS2 humble*
 
 # LICENSE
-- このソフトウェアパッケージは, 3条項BSDライセンスの下, 再頒布および使用が許可されます.
-- このパッケージ内の一部は, 下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを, 本人の許可を得て自身の著作としたものです.
+
+- このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+- このパッケージ内の一部のコードは, 下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを, 本人の許可を得て自身の著作としたものです.
     - [ryuichiueda/my_slides robosys_2024](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2024)
 - © 2025 Soichiro Suzuki
