@@ -56,12 +56,21 @@ $ pip install requests
 $ sudo apt-get install python3-requests
 ```
 
-### *OpenWeatherMap APIキー*（公式サイトで取得）
+### *python-dotenv モジュール*
+- `.env`ファイルからAPIキーを読み込む際に使用します.
+
+### *OpenWeatherMap APIキー* （公式サイトで取得）
 - OpenWeatherMap API へアクセスするには, APIキーを取得する必要があります.
-- 取得したAPIキーは`skytree_weather_publisher.py`内の以下の行に設定してください.
+
+### *.env ファイルの作成*
+- `.env`ファイルに取得したAPIキーを登録します.
+- 以下の手順で`skytree_weather_publisher.py`と*同じディレクトリ*に`.env`を作成してください.
 ```
-def get_weather_info(self):
-        api_key = "ここに取得したAPIキーを設定"
+$ vi .env
+```
+`.env` に記述する内容
+```
+OPENWEATHER_API_KEY=ここに取得したAPIキーを入力     # 例：OPENWEATHER_API_KEY=12345678910
 ```
 
 ## 実行方法
@@ -92,6 +101,8 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
     - https://qiita.com/noritakaIzumi/items/34f16e383f59f9c5d8cf
 - OpenWeatherMap
     - https://openweathermap.org/
+- .envファイルで環境変数を設定する方法
+    - https://qiita.com/k-suna/items/ef782da10e66f642ddbc
 
 # 注意事項
 以下はテスト用です
