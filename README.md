@@ -48,7 +48,7 @@ $ colcon build
 
 ### *python requests モジュール*
 - APIから天気情報を取得する際に使用します.
-- `pip install requests`または`sudo apt-get install python3-requests`でインストールしてください.
+- `pip install requests`または`sudo apt install python3-requests`でインストールしてください.
 ```
 $ pip install requests
 ```
