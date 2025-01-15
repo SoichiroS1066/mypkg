@@ -18,32 +18,6 @@ $ colcon build
 
 # skytree_weather_publisher
 
-## 機能
-- 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）をパブリッシュする
-
-## ノードとトピック
-
-### ノード
-
-### weather_publisher
-
-- 役割: 天気情報を取得し, 定期的に情報を`weather_info`トピックへパブリッシュするノード
-- 機能:
-    - OpenWeatherMap API を使用して, 東京スカイツリー（緯度35.710139、経度139.810833）の天気情報を取得
-    - 1秒ごとに天気情報をパブリッシュ
-
-### トピック
-
-### weather_info (std_msgs/msg/String)
-
-- 役割: `weather_publisher`ノードが天気情報をパブリッシュするトピック
-- 内容:
-    - 天気（16段階）
-    - 気温（°C）
-    - 湿度（%）
-    - 風速（m/s）
-    - 見晴らしの評価（天気に基づく）
-
 ## 前提条件
 
 ### *python requests モジュール*
@@ -79,6 +53,32 @@ $ vi .env
 ```
 OPENWEATHER_API_KEY=ここに取得したAPIキーを入力     # 例：OPENWEATHER_API_KEY=12345678910
 ```
+
+## 機能
+- 東京スカイツリーの天気情報（天気, 気温, 湿度, 風速, 見晴らし評価）をパブリッシュする
+
+## ノードとトピック
+
+### ノード
+
+### weather_publisher
+
+- 役割: 天気情報を取得し, 定期的に情報を`weather_info`トピックへパブリッシュするノード
+- 機能:
+    - OpenWeatherMap API を使用して, 東京スカイツリー（緯度35.710139、経度139.810833）の天気情報を取得
+    - 1秒ごとに天気情報をパブリッシュ
+
+### トピック
+
+### weather_info (std_msgs/msg/String)
+
+- 役割: `weather_publisher`ノードが天気情報をパブリッシュするトピック
+- 内容:
+    - 天気（16段階）
+    - 気温（°C）
+    - 湿度（%）
+    - 風速（m/s）
+    - 見晴らしの評価（天気に基づく）
 
 ## 実行方法
 以下のコマンドで実行可能です.
@@ -123,5 +123,5 @@ data: '東京スカイツリー: 天気: 晴れ, 気温: 10.36°C, 湿度: 26%, 
 # LICENSE
 - このソフトウェアパッケージは, 3条項BSDライセンスの下, 再頒布および使用が許可されます.
 - このパッケージ内の一部は, 下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを, 本人の許可を得て自身の著作としたものです.
-    - [ryuichiueda/my_slides robosys_2024](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2024)
+    - [ryuichiueda/my_slides robosys_2022](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2022)
 - © 2025 Soichiro Suzuki
