@@ -1,8 +1,0 @@
-Metadata-Version: 2.1
-Name: mypkg
-Version: 0.0.0
-Summary: Weather data publisher
-Maintainer: Soichiro Suzuki
-Maintainer-email: s21c1066jy@s.chibakoudai.jp
-License: BSD-3-Clause
-License-File: LICENSE

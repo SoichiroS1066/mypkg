@@ -1,5 +1,0 @@
-[console_scripts]
-listener = mypkg.listener:main
-mount_fuji_weather_publisher = mypkg.mount_fuji_weather_publisher:main
-mount_fuji_weather_subscriber = mypkg.mount_fuji_weather_subscriber:main
-skytree_weather_publisher = mypkg.skytree_weather_publisher:main

@@ -58,6 +58,7 @@ $ sudo apt-get install python3-requests
 
 ### *python-dotenv モジュール*
 - `.env`ファイルからAPIキーを読み込む際に使用します.
+- `pip install python-dotenv`または`sudo apt install python3-dotenv`でインストールしてください.
 ```
 $ pip install python-dotenv
 ```
@@ -66,7 +67,7 @@ $ sudo apt install python3-dotenv
 ```
 
 ### *OpenWeatherMap APIキー* （公式サイトで取得）
-- OpenWeatherMap API へアクセスするには, APIキーを取得する必要があります.
+- `skytree_weather_publisher.py`がOpenWeatherMap API へアクセスする際に使用します.
 
 ### *.env ファイルの作成*
 - 取得したAPIキーを管理する際に使用します.
